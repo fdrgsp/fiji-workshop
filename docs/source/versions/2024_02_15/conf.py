@@ -66,14 +66,10 @@ else:
 
 # -- Automatically detect repository and base URL ----------------------------
 
-# Try to use GITHUB_REPOSITORY (e.g., 'hms-iac/workshop-template'), otherwise default
-repository_name = os.getenv('GITHUB_REPOSITORY', '').split('/')[-1]
+# Use GITHUB_REPOSITORY or default to detecting the folder name
+repository_name = os.getenv('GITHUB_REPOSITORY', 'hms-iac/workshop-template').split('/')[-1]
 
-# If no repository name is detected, use the current directory name as fallback
-if not repository_name:
-    repository_name = os.path.basename(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
-
-# Construct the base URL, assuming all projects are hosted at 'https://hms-iac.github.io/<repository-name>/'
+# Construct the base URL based on the repository name
 base_url = f"/{repository_name}/" if repository_name else "/"
 
 # -- Configurations for displaying versions ----------------------------------
