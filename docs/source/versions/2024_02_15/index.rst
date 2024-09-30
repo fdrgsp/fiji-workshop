@@ -1,24 +1,66 @@
-.. QuPath documentation master file, created by
-   sphinx-quickstart on Fri May 24 09:11:52 2024.
+.. Workshop Documentation Template, created by
+   sphinx-quickstart.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 
-Introduction to Bioimage Analysis - 2024_02_15
-==================================================
+Welcome to the [Workshop Title]!
+=================================================================
 
-.. **Download the course materials:**
+This set of slides introduces participants to key concepts in [Workshop Subject]. It is designed to provide practical insights for [Target Audience] who are interested in [Objective of Workshop].
 
-.. .. raw:: html
+The following materials were developed for a workshop taught in-person at Harvard Medical School.
 
-..    <p>1. Slides: <a href="docs/source/_static/all_slides.pdf" download>Download PDF</a></p>
+**Downloadable Resources**
+---------------------------
 
-Contents
-=======================================
+- **Course slides:**
+  
+  .. raw:: html
+  
+     <p><a href="_static/all_slides.pdf" download>Download all slides (PDF)</a></p>
+
+- **Workshop materials:**
+  
+  e.g. images to download, sample datasets, etc. Small images can be hosted on github, e.g. in the _static/ folder. Larger files can be hosted on a cloud storage service like Google Drive, Dropbox or Zenodo.
+
+  .. raw:: html
+  
+     <p><a href="[link_to_material_1]" download>Download Material 1 (ZIP)</a></p>
+     <p><a href="[link_to_material_2]" download>Download Material 2 (ZIP)</a></p>
+
+  [Optional Acknowledgements for Contributors/Resources]
+
+**Useful Links**
+----------------
+
+Here are some helpful resources to complement the workshop materials:
+
+- `Download QuPath (make sure to install version 0.5x!) <https://qupath.github.io/>`_
+- `Download [Software Name] <[software_link]>`_
+- `Download [Extension/Plugin] <[extension_link]>`_
+- `[Documentation/Manual for Software] <[documentation_link]>`_
+- `[Online Community Forum/Discussions] <[forum_link]>`_
+
+**Topics Covered**
+-------------------
+
+Below are the core sections of this workshop, each focusing on different aspects of [Workshop Subject].
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    01_intro.rst
    02_intro_to_fiji.rst
    03_fiji.rst
+
+
+[Additional sections, such as hands-on exercises or quizzes, can be added here.]
+
+**Feedback**
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   feedback.rst
