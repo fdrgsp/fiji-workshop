@@ -20,3 +20,5 @@ Contents
    :maxdepth: 2
 
    01_intro.rst
+   02_intro_to_fiji.rst
+   03_fiji.rst

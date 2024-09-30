@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to Bioimage Analysis - 2024_02_15 &#8212; Template for IAC workshops</title>
+    <title>Introduction to Fiji/ImageJ &#8212; Template for IAC workshops</title>
   
   
   
@@ -41,10 +41,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_intro_to_fiji';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction to image analysis" href="01_intro.html" />
+    <link rel="next" title="Your first project in Fiji" href="03_fiji.html" />
+    <link rel="prev" title="Introduction to image analysis" href="01_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -113,7 +114,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -149,8 +150,8 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="02_intro_to_fiji.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
     Introduction to Fiji/ImageJ
   </a>
 </li>
@@ -259,8 +260,6 @@ document.write(`
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -283,8 +282,8 @@ document.write(`
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="02_intro_to_fiji.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
     Introduction to Fiji/ImageJ
   </a>
 </li>
@@ -352,6 +351,12 @@ document.write(`
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+        <div class="sidebar-primary-item">
   <h3>Previous editions:</h3>
   <ul>
 
@@ -393,7 +398,33 @@ document.write(`
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none"></div>
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Introduction...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
               
               
               
@@ -401,21 +432,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="introduction-to-bioimage-analysis-2024-02-15">
-<h1>Introduction to Bioimage Analysis - 2024_02_15<a class="headerlink" href="#introduction-to-bioimage-analysis-2024-02-15" title="Link to this heading">#</a></h1>
-</section>
-<section id="contents">
-<h1>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_intro.html">Introduction to image analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_intro_to_fiji.html">Introduction to Fiji/ImageJ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="02_intro_to_fiji.html#practice"><strong>Practice</strong></a></li>
+  <section id="introduction-to-fiji-imagej">
+<h1>Introduction to Fiji/ImageJ<a class="headerlink" href="#introduction-to-fiji-imagej" title="Link to this heading">#</a></h1>
+<p>This page contains the same PDF slides as before.</p>
+<iframe src="_static/01_intro_digital_image_analysis.pdf" width="100%" height="600px"></iframe><p>Below is an example on how to list exerices for the course:</p>
+<section id="practice">
+<h2><strong>Practice</strong><a class="headerlink" href="#practice" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>QuPath projects and GUI</p>
+<ol class="loweralpha simple">
+<li><p>Change LUT colors of the channels (Brightness &amp; Contrast tab)</p>
+<ol class="arabic simple">
+<li><p>DAPI = blue, FITC = green, TRITC = red, CY5 = yellow</p></li>
+</ol>
+</li>
+<li><p>LUT, Brightness &amp; Contrast and pixel values</p>
+<ol class="arabic simple">
+<li><p>Select one of the channels for display</p></li>
+<li><p>Zoom into the image to inspect the value of a single pixel, and note its value</p></li>
+<li><p>Adjust the Brightness &amp; Contrast, and the LUT range (min/max)</p>
+<ul class="simple">
+<li><p>How did the pixel value change?</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="03_fiji.html">Your first project in Fiji</a></li>
+<li><p>Change the LUT to grayscale or any other color</p>
+<ul class="simple">
+<li><p>How did the pixel value change?</p></li>
 </ul>
-</div>
+</li>
+</ol>
+</li>
+<li><p>Multi-viewer</p>
+<ol class="arabic simple">
+<li><p>Use the command list (Command/CTRL + L) to find the command to add a second display window to the default window</p></li>
+<li><p>Display one channel in each viewer window</p></li>
+<li><p>Zoom in and out, then export snapshots (make sure to include a scale bar)</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>QuPath manual annotations</p>
+<ol class="loweralpha simple">
+<li><p>Recreate the annotations seen in slides</p>
+<ol class="arabic simple">
+<li><p>Recommended: use the paint brush tool</p></li>
+<li><p>Lock your annotations</p></li>
+</ol>
+</li>
+<li><p>Create an annotation to circle a region of interest (ROI)</p>
+<ol class="arabic simple">
+<li><p>Circle a region of high signal intensity in the fibronectin channel</p></li>
+<li><p>Lock your annotation</p></li>
+<li><p>Optional: rename it</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
 </section>
 
 
@@ -428,12 +502,21 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
+    <a class="left-prev"
        href="01_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to image analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_fiji.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to image analysis</p>
+        <p class="prev-next-title">Your first project in Fiji</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -455,16 +538,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Bioimage Analysis - 2024_02_15</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practice"><strong>Practice</strong></a></li>
 </ul>
-
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/index.rst.txt">
+    <a href="_sources/02_intro_to_fiji.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
