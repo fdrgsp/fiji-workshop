@@ -1,11 +1,22 @@
 import os
 import sys
 
-# -- Project information -----------------------------------------------------
+# -- Customizable Project Settings -------------------------------------------
 project = 'workshop-template'
 copyright = '2024, Antoine A. Ruzette'
 author = 'Antoine A. Ruzette'
 release = '0.0.1'
+html_title = 'Template for IAC workshops'
+
+# URLs
+iac_url = "https://iac.hms.harvard.edu/"
+github_url = "https://github.com/HMS-IAC"
+repository_name = os.getenv('GITHUB_REPOSITORY', 'hms-iac/workshop-template').split('/')[-1]
+base_url = f"/{repository_name}/" if repository_name else "/"
+
+# Version-specific handling
+current_version = os.getenv('CURRENT_VERSION', None)
+versions_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../versions'))
 
 # -- General configuration ---------------------------------------------------
 extensions = [
@@ -15,45 +26,46 @@ extensions = [
     "sphinx_copybutton",
 ]
 
+# Logos and branding
+html_logo = "_static/iac-hms-logo-light.png"
+html_logo_dark = "_static/iac-hms-logo-dark.png"
+
 # Use global _templates directory for all versions
 templates_path = ['../../_templates']
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = 'pydata_sphinx_theme'
-html_logo = "_static/iac-hms-logo-light.png"
-html_title = 'Template for IAC workshops'
-
-html_theme_options = {
-    'logo': {
-        'text': 'Template for IAC workshops',
-        'image_light': '_static/iac-hms-logo-light.png',
-        'image_dark': '_static/iac-hms-logo-dark.png',
-    },
-    'navbar_end': ['navbar-icon-links', 'theme-switcher'],
-    'theme_switcher': True,
-    'icon_links': [
-        {
-            "name": "IAC",
-            "url": "https://iac.hms.harvard.edu/",
-            "icon": "fa-solid fa-globe",
-        },
-        {
-            "name": "GitHub",
-            "url": "https://github.com/HMS-IAC",
-            "icon": "fa-brands fa-github",
-        }
-    ],
-}
 
 # Sidebar settings for navigation
 html_sidebars = {
     "**": ["sidebar-nav-bs", "sidebar_versions.html"],
 }
 
-# -- Version-Specific Handling -----------------------------------------------
-current_version = os.getenv('CURRENT_VERSION', None)
+# Theme options, including light/dark mode logos and switcher
+html_theme_options = {
+    'logo': {
+        'text': 'Template for IAC workshops',
+        'image_light': html_logo,
+        'image_dark': html_logo_dark,
+    },
+    'navbar_end': ['navbar-icon-links', 'theme-switcher'],
+    'theme_switcher': True,
+    'icon_links': [
+        {
+            "name": "IAC",
+            "url": iac_url,
+            "icon": "fa-solid fa-globe",
+        },
+        {
+            "name": "GitHub",
+            "url": github_url,
+            "icon": "fa-brands fa-github",
+        }
+    ],
+}
 
+# -- Version-Specific Handling -----------------------------------------------
 if current_version:
     master_doc = 'index'
     version_source_dir = os.path.abspath(f"versions/{current_version}")
@@ -64,18 +76,7 @@ else:
     master_doc = 'index'
     html_static_path = ['_static']
 
-# -- Automatically detect repository and base URL ----------------------------
-
-# Use GITHUB_REPOSITORY or default to detecting the folder name
-repository_name = os.getenv('GITHUB_REPOSITORY', 'hms-iac/workshop-template').split('/')[-1]
-
-# Construct the base URL based on the repository name
-base_url = f"/{repository_name}/" if repository_name else "/"
-
-# -- Configurations for displaying versions ----------------------------------
-versions_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../versions'))
-
-# Collect all version directories
+# -- Automatically detect and display versions ------------------------------
 versions = []
 if os.path.isdir(versions_dir):
     versions = [d for d in os.listdir(versions_dir) if os.path.isdir(os.path.join(versions_dir, d))]

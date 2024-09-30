@@ -1,92 +1,123 @@
-[![CC BY 4.0][cc-by-shield]][cc-by]
+[![CC BY 4.0][cc-by-shield]][cc-by]  
+This work is licensed under a  
+[Creative Commons Attribution 4.0 International License][cc-by].  
 
-This work is licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by].
+[cc-by]: http://creativecommons.org/licenses/by/4.0/  
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg  
 
-[cc-by]: http://creativecommons.org/licenses/by/4.0/
-[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+# Workshop Materials Template
 
-# Template to host workshop materials
+This repository provides a template to host workshop materials using Sphinx to generate HTML documentation from reStructuredText (reST) files. You can use it to organize your workshop presentations, exercises, and materials in a structured and versioned manner.
 
-This repository uses Sphinx to generate documentation from reStructuredText (reST) files. 
+## Folder Structure
 
-## Getting started
-
-To modify the content of this repository, follow these steps:
-
-
-1. **Create a repository in the IAC-HMS organization**. e.g. fiji-workshop. 
-
-2. **Clone the repository**: Clone this repository to your local machine using VSCode or Git.
-
-    ```bash
-    git clone https://github.com/HMS-IAC/<workshop-name>.git
-    ```
-
-3. **Create an environment**: For example, using conda. 
-    ```bash
-    conda create -n fiji-workshop python=3.11
-    conda activate fiji-workshop
-    ```
-
-4. **Install Sphinx and extensions**: `pydata` is the Sphinx theme used. 
-
-    ```bash
-    pip install -U sphinx pydata_sphinx_theme sphinx_copybutton
-    ```
-
-5. **Quickstart sphinx**: 
-
-    First, create a /docs folder (e.g. mkdir docs). 
-
-    ```bash
-    sphinx-quickstart docs
-    ```
-
-    > Separate source and build directories (y/n) [n]: Write “y” (without quotes) and press Enter.
-    > Project name: Write "fiji-workshop" (without quotes) and press Enter.
-    > Author name(s): Write "name, name, name" (without quotes) and press Enter.
-    > Project release []: e.g. write “0.1” (without quotes) and press Enter.
-    > Project language [en]: Leave it empty (the default, English) and press Enter.
+The repository uses the following structure for organizing multiple workshop versions, each with its own content and slides:
     
+```plaintext
+workshop-name/
+├── docs/
+│   ├── build/
+│   ├── source/
+│   │   ├── _templates/
+│   │   ├── versions/
+│   │       ├── 2024_01_30/
+|   |           ├── _static/
+│   │               ├── 01_slide.pdf
+│   │               ├── 02_slide.pdf
+│   |               └── ...
+|   |           ├── 01_slide.rst
+│   │           ├── 02_slide.rst
+│   │           ├── make.bat
+│   │           ├── Makefile
+│   |           ├── conf.py
+│   │           └── ...
+│   │       ├── 2024_02_15/
+|   |           ├── _static/
+│   │               ├── 01_slide.pdf
+│   │               ├── 02_slide.pdf
+│   |               └── ...
+│   │           ├── make.bat
+│   │           ├── Makefile
+│   |           ├── conf.py
+│   │           └── ...
+│   │       └── ...
+│   ├── build_versions.sh
+└── ...
+```
 
-6. **Configure the build with conf.py**: Navigate to the directory containing the documentation source files.
+Each folder in `versions/` corresponds to a specific workshop version, with its own set of slides and content.
 
-    ```bash
-    cd docs/source
-    ```
+## Instructions
 
-    Replace the content of the `conf.py` file with the following:
+### 1. Create a new repository and clone this one
 
-    ```python
+First, create a new repository on the IAC-HMS github to host your workshop materials. Then, to clone this repository, download the content of this repository as ZIP, or run:
 
-    import os
-    ```
+```bash
+git clone https://github.com/HMS-IAC/workshop-template.git
+```
 
-5. **Modify and build for as single version**: Edit the `.rst` files in the source directory to make changes to the documentation content. You can use any text editor to modify these files. Then, build the html files. 
+### 2. Install dependencies
 
-    ```bash
-    make clean
-    ```
+To install the necessary Python dependencies, run:
 
-    ```bash
-    make html
-    ```
+```bash
+conda create -n fiji-workshop python=3.11
+conda activate fiji-workshop
+pip install -U sphinx pydata_sphinx_theme sphinx_copybutton
+```
 
-8. **HTML files**: After building the documentation, you can view the updated the HTML files located in the `docs/build/html` directory.
+### 3. Customize the template
 
-9. **Move the content of `docs/build/html` to root directory of gh-pages branch**: use a `tmp` folder, and drog and drop the folders (each folder contains the materials of a version) to the root of the publishing branch. 
+1. Update each `conf.py` file in the `source/versions` folder with the name of your workshop and your name.
 
-10. **Commit and Push Changes**: After verifying that the documentation looks as expected by opening local html file, commit your changes and push them to the repository.
+```python
+# -- Customizable Project Settings -------------------------------------------
+project = 'workshop-template'
+copyright = '2024, Antoine A. Ruzette'
+author = 'Antoine A. Ruzette'
+release = '0.0.1'
+html_title = 'Template for IAC workshops'
 
-    ```bash
-    cd ..
-    git add .
-    git commit -m "Update documentation"
-    git push
-    ```
+# URLs
+iac_url = "https://iac.hms.harvard.edu/"
+github_url = "https://github.com/HMS-IAC"
+repository_name = os.getenv('GITHUB_REPOSITORY', 'hms-iac/workshop-template').split('/')[-1]
+base_url = f"/{repository_name}/" if repository_name else "/"
+```
 
-## Additional resources
+### 4. Add your content
 
-- [Sphinx Documentation](https://www.sphinx-doc.org/en/master/): Official documentation for Sphinx.
-- [reStructuredText Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html): Learn the basics of reStructuredText (reST) markup language.
+1. Add your slides as PDF files in the `_static` folder of each version.
+2. Add your content as reStructuredText (reST) files in the `source/versions` folder of each version.
+
+### 5. Build the documentation
+
+This bash script will build the documentation for each version in the `source/versions` folder, as well as creating a entry index.html file to redirect to the latest version of the workshop i.e. the most recent one.
+
+```bash
+sh docs/build_versions.sh
+```
+
+It's good practice to start from a clean /build folder. To do so, run:
+
+```bash
+cd docs
+make clean
+cd ..
+```
+
+### 6. Publish the documentation
+
+Save in a temporary folder the content of the `docs/build` folder. Then, manually add – or override the existing content – the content of the `docs/build` folder to the root of the `gh-pages` branch of your repository. Make sure your `gh-pages` branch contains a .nojekyll file to prevent GitHub from ignoring the `_static` folder.
+
+```bash
+git checkout -b gh-pages
+git add .
+git commit -m "Add workshop materials"
+git push origin gh-pages
+```
+
+### 7. Enable GitHub Pages
+
+Go to the settings of your repository, and under the GitHub Pages section, select the `gh-pages` branch as the source for your GitHub Pages.
