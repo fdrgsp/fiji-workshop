@@ -5,7 +5,7 @@
 
 
 Welcome to the [Workshop Title]!
-=================================================================
+===================================
 
 This set of slides introduces participants to key concepts in [Workshop Subject]. It is designed to provide practical insights for [Target Audience] who are interested in [Objective of Workshop].
 
@@ -53,6 +53,7 @@ Below are the core sections of this workshop, each focusing on different aspects
    01_intro.rst
    02_intro_to_fiji.rst
    03_fiji.rst
+   03_fiji copy.rst
 
 
 [Additional sections, such as hands-on exercises or quizzes, can be added here.]
