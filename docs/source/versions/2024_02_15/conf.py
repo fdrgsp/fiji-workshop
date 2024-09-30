@@ -64,6 +64,18 @@ else:
     master_doc = 'index'
     html_static_path = ['_static']
 
+# -- Automatically detect repository and base URL ----------------------------
+
+# Try to use GITHUB_REPOSITORY (e.g., 'hms-iac/workshop-template'), otherwise default
+repository_name = os.getenv('GITHUB_REPOSITORY', '').split('/')[-1]
+
+# If no repository name is detected, use the current directory name as fallback
+if not repository_name:
+    repository_name = os.path.basename(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+
+# Construct the base URL, assuming all projects are hosted at 'https://hms-iac.github.io/<repository-name>/'
+base_url = f"/{repository_name}/" if repository_name else "/"
+
 # -- Configurations for displaying versions ----------------------------------
 versions_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../versions'))
 
@@ -72,7 +84,7 @@ versions = []
 if os.path.isdir(versions_dir):
     versions = [d for d in os.listdir(versions_dir) if os.path.isdir(os.path.join(versions_dir, d))]
 
-# Make the versions available to the templates
+# Make the versions available to the templates with the correct base path
 html_context = {
-    'versions': [{'name': v, 'url': f'/versions/{v}/html/index.html'} for v in versions],
+    'versions': [{'name': v, 'url': f'{base_url}versions/{v}/html/index.html'} for v in versions],
 }
