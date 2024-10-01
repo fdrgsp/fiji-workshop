@@ -30,9 +30,6 @@ else
   REPO_NAME=$(git config --get remote.origin.url | sed 's/.*\/\([^\/]*\)\.git/\1/')
 fi
 
-# If the repository name couldn't be detected, fallback to a default name
-REPO_NAME=${REPO_NAME:-"workshop-template"}
-
 # Create the index.html file with a redirect to the latest version
 INDEX_FILE="${BUILD_DIR}/index.html"
 
@@ -42,16 +39,16 @@ cat <<EOL > $INDEX_FILE
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/html/index.html">
+    <meta http-equiv="refresh" content="0; url=https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html">
     <title>Documentation Redirect</title>
 </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/html/index.html">link to the latest version</a>.</p>
+    <p>If you are not redirected automatically, follow this <a href="https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html">link to the latest version</a>.</p>
 </body>
 </html>
 EOL
 
-echo "index.html generated with redirect to https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/html/index.html"
+echo "index.html generated with redirect to https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html"
 
 # Optionally print a success message
 echo "Build complete! Latest version: $LATEST_VERSION"
