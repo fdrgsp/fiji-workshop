@@ -2,10 +2,14 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?=
+# SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = ../../../build/versions/$(shell basename `pwd`)
+CONFDIR       = ../..
+
+# Include the -c option to specify the conf.py directory
+SPHINXOPTS    += -c $(CONFDIR)
 
 # Put it first so that "make" without argument is like "make help".
 help:

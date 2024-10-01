@@ -15,8 +15,8 @@ repository_name = os.getenv('GITHUB_REPOSITORY', 'hms-iac/workshop-template').sp
 base_url = f"/{repository_name}/" if repository_name else "/"
 
 # Version-specific handling
-current_version = os.getenv('CURRENT_VERSION', None)
-versions_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../versions'))
+current_version = os.getenv('CURRENT_VERSION', None)  # Gets the version being built
+versions_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'versions'))
 
 # -- General configuration ---------------------------------------------------
 extensions = [
@@ -26,12 +26,8 @@ extensions = [
     "sphinx_copybutton",
 ]
 
-# Logos and branding
-html_logo = "_static/iac-hms-logo-light.png"
-html_logo_dark = "_static/iac-hms-logo-dark.png"
-
 # Use global _templates directory for all versions
-templates_path = ['../../_templates']
+templates_path = ['_templates']
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
@@ -46,8 +42,8 @@ html_sidebars = {
 html_theme_options = {
     'logo': {
         'text': 'Template for IAC workshops',
-        'image_light': html_logo,
-        'image_dark': html_logo_dark,
+        'image_light': os.path.join('_static', 'iac-hms-logo-light.png'),
+        'image_dark': os.path.join('_static', 'iac-hms-logo-dark.png'),
     },
     'navbar_end': ['navbar-icon-links', 'theme-switcher'],
     'theme_switcher': True,
@@ -66,15 +62,20 @@ html_theme_options = {
 }
 
 # -- Version-Specific Handling -----------------------------------------------
+# Always include the main static path
+html_static_path = [os.path.abspath('_static')]
+
+# If a specific version is being built, prepend its static path
 if current_version:
-    master_doc = 'index'
-    version_source_dir = os.path.abspath(f"versions/{current_version}")
-    sys.path.insert(0, version_source_dir)
-    html_static_path = [os.path.join(version_source_dir, '_static')] if os.path.isdir(os.path.join(version_source_dir, '_static')) else []
-    html_static_path.append('_static')  # Always include the main static path
-else:
-    master_doc = 'index'
-    html_static_path = ['_static']
+    master_doc = 'index'  # Ensure correct starting point
+    version_source_dir = os.path.abspath(os.path.join('versions', current_version))
+    sys.path.insert(0, version_source_dir)  # Add the version directory to the Python path
+    
+    # Add version-specific static path if it exists
+    version_static_path = os.path.join(version_source_dir, '_static')
+    if os.path.isdir(version_static_path):
+        html_static_path.insert(0, version_static_path)  # Prepend to include version-specific files
+        print(f"Added {version_static_path} to html_static_path")
 
 # -- Automatically detect and display versions ------------------------------
 versions = []

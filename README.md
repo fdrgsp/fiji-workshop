@@ -93,7 +93,7 @@ base_url = f"/{repository_name}/" if repository_name else "/"
 
 ### 5. Build the documentation
 
-This bash script will build the documentation for each version in the `source/versions` folder, as well as creating a entry index.html file to redirect to the latest version of the workshop i.e. the most recent one.
+This bash script will build the documentation for each version in the `source/versions` folder, as well as creating a entry index.html file to redirect to the latest version of the workshop i.e. the most recent one. In the background, it runs the `make html` command independently for each version, and saves the produced html files in `docs/build/`.
 
 ```bash
 sh docs/build_versions.sh

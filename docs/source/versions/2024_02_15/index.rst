@@ -53,8 +53,7 @@ Below are the core sections of this workshop, each focusing on different aspects
    01_intro.rst
    02_intro_to_fiji.rst
    03_fiji.rst
-   03_fiji copy.rst
-
+   
 
 [Additional sections, such as hands-on exercises or quizzes, can be added here.]
 

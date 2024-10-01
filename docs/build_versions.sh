@@ -6,7 +6,13 @@ VERSIONS=($(ls -d docs/source/versions/* | xargs -n 1 basename | sort -r))
 # Build each version
 for version in "${VERSIONS[@]}"; do
   echo "Building documentation for version: $version"
-  (cd docs/source/versions/$version && make html)
+  
+  # Set the CURRENT_VERSION environment variable for this version
+  export CURRENT_VERSION=$version
+  
+  # Run sphinx-build with the root conf.py, specifying the source and build directories
+  sphinx-build -b html "docs/source/versions/$version" "docs/build/versions/$version" -c "docs/source"
+
 done
 
 # Path to the build directory
