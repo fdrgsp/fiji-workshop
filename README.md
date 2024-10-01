@@ -16,32 +16,30 @@ The repository uses the following structure for organizing multiple workshop ver
 ```plaintext
 workshop-name/
 ├── docs/
-│   ├── build/
+│   ├── build/                          # Contains the generated HTML output
 │   ├── source/
-│   │   ├── _templates/
-│   │   ├── versions/
-│   │       ├── 2024_01_30/
-|   |           ├── _static/
-│   │               ├── 01_slide.pdf
-│   │               ├── 02_slide.pdf
-│   |               └── ...
-|   |           ├── 01_slide.rst
-│   │           ├── 02_slide.rst
-│   │           ├── make.bat
-│   │           ├── Makefile
-│   |           ├── conf.py
-│   │           └── ...
-│   │       ├── 2024_02_15/
-|   |           ├── _static/
-│   │               ├── 01_slide.pdf
-│   │               ├── 02_slide.pdf
-│   |               └── ...
-│   │           ├── make.bat
-│   │           ├── Makefile
-│   |           ├── conf.py
-│   │           └── ...
+│   │   ├── _static/                    # Global static files
+│   │       ├── iac-hms-logo-light.png
+│   │       ├── iac-hms-logo-dark.png
 │   │       └── ...
-│   ├── build_versions.sh
+│   │   ├── _templates/                 # Global templates
+│   │   ├── versions/                   # Folder containing versions
+│   │       ├── 2024_01_30/             # Version-specific folder
+│   │           ├── _static/            # Version-specific static files e.g. PDF slides
+│   │               ├── 01_slide.pdf
+│   │               └── ...
+│   │           ├── 01_slide.rst        # Version-specific content (reST files or Markdown)
+│   │           ├── Makefile            # Version-specific Makefile
+│   │           └── ...
+│   │       ├── 2024_02_15/             # Another version-specific folder
+│   │           ├── _static/
+│   │               ├── 01_slide.pdf
+│   │               └── ...
+│   │           ├── 01_slide.rst
+│   │           ├── Makefile
+│   │           └── ...
+│   │   ├── conf.py                     # Single global configuration for all versions
+│   ├── build_versions.sh               # Bash script to build all versions
 └── ...
 ```
 
@@ -95,16 +93,18 @@ base_url = f"/{repository_name}/" if repository_name else "/"
 
 This bash script will build the documentation for each version in the `source/versions` folder, as well as creating a entry index.html file to redirect to the latest version of the workshop i.e. the most recent one. In the background, it runs the `make html` command independently for each version, and saves the produced html files in `docs/build/`.
 
-```bash
-sh docs/build_versions.sh
-```
-
-It's good practice to start from a clean /build folder. To do so, run:
+It's good practice to start from a clean `build` folder. Note that the `docs` folder also contains a general purpose Makefile to clean up `build`. To do so, run:
 
 ```bash
 cd docs
 make clean
 cd ..
+```
+
+Then, run the bash script to build the documentation:
+
+```bash
+sh docs/build_versions.sh
 ```
 
 ### 6. Publish the documentation
