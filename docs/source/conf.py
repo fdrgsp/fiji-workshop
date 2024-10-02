@@ -5,7 +5,7 @@ import os
 # =============================================================================
 
 # -- Project Information -----------------------------------------------------
-project = 'workshop-template'  # Change this to the name of your project
+project = 'fiji-workshop'  # Change this to the name of your github repository
 author = 'Antoine A. Ruzette, Federico Gasparoli, Ranit Karmakar, Maria Theiss & Simon F. Nørrelykke'  # Set the author's name
 html_title = 'Fiji workshop'  # The title of the website
 
