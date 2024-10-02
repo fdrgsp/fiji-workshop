@@ -1,25 +1,25 @@
 import os
 
 # =============================================================================
-#                Customizable Information for New Users
+#                           Customizable Information
 # =============================================================================
 
 # -- Project Information -----------------------------------------------------
-project = 'fiji-workshop'  # Change this to the name of your github repository
+project = 'fiji-workshop'  # Change this to the name of your project
 author = 'Antoine A. Ruzette, Federico Gasparoli, Ranit Karmakar, Maria Theiss & Simon F. Nørrelykke'  # Set the author's name
 html_title = 'Fiji workshop'  # The title of the website
+
+# =============================================================================
+#                    Configuration Settings - Do Not Change
+# =============================================================================
 
 # -- Repository and URL Configuration ----------------------------------------
 # no need to change if your repository is hosted on the IAC-HMS GitHub
 iac_url = "https://iac.hms.harvard.edu/"  # Institution website URL
 github_url = "https://github.com/HMS-IAC"  # GitHub organization URL
 
-# =============================================================================
-#              End of Customizable Information for New Users
-# =============================================================================
-
 # Copyright information
-copyright = '2024, Antoine A. Ruzette'  # Update copyright information
+copyright = '(2024) Antoine A. Ruzette, Federico Gasparoli, Ranit Karmakar, Maria Theiss & Simon F. Nørrelykke'  # Update copyright information
 
 # -- General Sphinx Configuration --------------------------------------------
 extensions = [
@@ -28,9 +28,6 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx_copybutton",
 ]
-
-# Templates path (global)
-templates_path = ['_templates']
 
 # Exclude patterns (add any files or directories you want to ignore)
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -44,7 +41,10 @@ html_theme_options = {
         'image_light': os.path.join('_static', 'iac-hms-logo-light.png'),
         'image_dark': os.path.join('_static', 'iac-hms-logo-dark.png'),
     },
+
     'navbar_end': ['navbar-icon-links', 'theme-switcher'],
+    "navbar_persistent": [],
+    "navbar_center": [],
     'icon_links': [
         {
             "name": "IAC",
@@ -59,9 +59,13 @@ html_theme_options = {
     ],
 }
 
+
+# Templates path (global)
+templates_path = ['_templates']
+
 # Sidebar configuration
 html_sidebars = {
-    "**": ["sidebar-nav-bs", "sidebar_versions.html"],
+    "**": ["sidebar_versions.html", "globaltoc"],
 }
 
 # -- Static Files Configuration ----------------------------------------------
