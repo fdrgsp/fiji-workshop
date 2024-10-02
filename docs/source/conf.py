@@ -6,7 +6,7 @@ import os
 
 # -- Project Information -----------------------------------------------------
 project = 'workshop-template'  # Change this to the name of your project
-author = 'Antoine A. Ruzette'  # Set the author's name
+author = 'Antoine A. Ruzette, Federico Gasparoli, Ranit Karmakar, Maria Theiss & Simon F. Nørrelykke'  # Set the author's name
 html_title = 'Fiji workshop'  # The title of the website
 
 # -- Repository and URL Configuration ----------------------------------------
@@ -45,7 +45,6 @@ html_theme_options = {
         'image_dark': os.path.join('_static', 'iac-hms-logo-dark.png'),
     },
     'navbar_end': ['navbar-icon-links', 'theme-switcher'],
-    'theme_switcher': True,
     'icon_links': [
         {
             "name": "IAC",
