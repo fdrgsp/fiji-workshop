@@ -46,15 +46,7 @@ Each folder in `versions/` corresponds to a specific workshop version, with its 
 
 ## Instructions
 
-### 1. Create a new repository and clone this one
-
-First, create a new repository on the IAC-HMS github to host your workshop materials. Then, to clone this repository, download the content of this repository as ZIP, or run:
-
-```bash
-git clone https://github.com/HMS-IAC/workshop-template.git
-```
-
-### 2. Install dependencies
+### 1. Install dependencies
 
 To install the necessary Python dependencies, run:
 
@@ -62,6 +54,17 @@ To install the necessary Python dependencies, run:
 conda create -n fiji-workshop python=3.11
 conda activate fiji-workshop
 pip install -U sphinx pydata_sphinx_theme sphinx_copybutton
+```
+
+### 2. Create a new repository and clone this one
+
+First, create a new repository on the IAC-HMS github to host your workshop materials. Then, download the content of this repository as ZIP, or fetch the template using git:
+
+```bash
+git remote add source https://github.com/HMS-IAC/workshop-template.git
+git merge source/main --allow-unrelated-histories
+git add .  # to resolve conflicts e.g. if you had an existing README.md
+git push origin main  # push the template content to your new repository
 ```
 
 ### 3. Customize the template
@@ -90,7 +93,7 @@ base_url = f"/{repository_name}/" if repository_name else "/"
 
 ### 5. Build the documentation
 
-This bash script will build the documentation for each version in the `source/versions` folder, as well as creating a entry index.html file to redirect to the latest version of the workshop i.e. the most recent one. In the background, it runs the `make html` command independently for each version, and saves the produced html files in `docs/build/`.
+This bash script will build the documentation for each version in the `source/versions` folder, as well as creating a entry `index.html` file to redirect to the latest version of the workshop i.e. the most recent one. In the background, it runs the `make html` command independently for each version, and saves the produced html files in `docs/build/`.
 
 It's good practice to start from a clean `build` folder. Note that the `docs` folder also contains a general purpose Makefile to clean up `build`. To do so, run:
 
@@ -100,7 +103,7 @@ make clean
 cd ..
 ```
 
-Then, run the bash script to build the documentation:
+Then, run the `build_versions.sh` bash script to build the documentation:
 
 ```bash
 sh docs/build_versions.sh
@@ -108,7 +111,7 @@ sh docs/build_versions.sh
 
 ### 6. Publish the documentation
 
-Save in a temporary folder the content of the `docs/build` folder. Then, manually add – or override the existing content – the content of the `docs/build` folder to the root of the `gh-pages` branch of your repository. Make sure your `gh-pages` branch contains a .nojekyll file to prevent GitHub from ignoring the `_static` folder.
+Save in a temporary folder the content of the `docs/build` folder. Then, manually add – or override the existing content – the content of the `docs/build` folder to the root of the `gh-pages` branch of your repository. Make sure your `gh-pages` branch contains a `.nojekyll` file to prevent GitHub from ignoring the `_static` folder.
 
 ```bash
 git checkout -b gh-pages
