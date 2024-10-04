@@ -4,8 +4,8 @@
    contain the root `toctree` directive.
 
 
-Welcome to the [Workshop Title]!
-===================================
+Welcome to Introduction to Bioimage Analysis using ImageJ/Fiji! 
+===================================================================
 
 This set of slides introduces participants to key concepts in bioimage analysis using the open-source software **ImageJ/Fiji**. It is designed as a primer for biologists who need to analyze images as part of their research but are new to image analysis.
 This course also stresses out the importance of reproducibility and quantiative image analysis in biological research.
@@ -57,7 +57,7 @@ Below are the core sections of this workshop, each focusing on different aspects
    
 
 **Exercises**
-------------
+---------------
 
 .. toctree::
    :maxdepth: 1
