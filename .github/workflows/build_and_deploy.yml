@@ -39,4 +39,3 @@ jobs:
           # Optional: Clean the gh-pages branch before publishing new files
           keep_files: false
           force_orphan: true  # Ensures that we create a fresh commit, overriding everything
-          destination_dir: "/"  # This ensures content is published to the root of gh-pages
