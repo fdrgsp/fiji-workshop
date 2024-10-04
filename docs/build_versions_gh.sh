@@ -33,7 +33,8 @@ BUILD_DIR="docs/build"
 LATEST_VERSION=${VERSIONS[0]}
 
 # Automatically detect the repository name from the Git configuration
-REPO_NAME=$(git config --get remote.origin.url | sed 's/.*\/\([^\/]*\)\.git/\1/')
+# This removes the 'https://github.com/' and only captures 'owner/repo-name'
+REPO_NAME=$(git config --get remote.origin.url | sed -E 's|^https://[^/]+/||' | sed 's/\.git$//')
 
 # Create the index.html file with a redirect to the latest version
 INDEX_FILE="${BUILD_DIR}/index.html"
@@ -42,16 +43,16 @@ cat <<EOL > $INDEX_FILE
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=$REPO_NAME/versions/$LATEST_VERSION/index.html">
+    <meta http-equiv="refresh" content="0; url=https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html">
     <title>Documentation Redirect</title>
 </head>
 <body>
-    <p>If not redirected, <a href="$REPO_NAME/versions/$LATEST_VERSION/index.html">click here</a>.</p>
+    <p>If not redirected, <a href="https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html">click here</a>.</p>
 </body>
 </html>
 EOL
 
 echo "========================================="
 echo "All versions built successfully."
-echo "Website entry point will be: $REPO_NAME/versions/$LATEST_VERSION/index.html"
+echo "Website entry point will be: https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html"
 echo "========================================="
