@@ -33,8 +33,8 @@ BUILD_DIR="docs/build"
 LATEST_VERSION=${VERSIONS[0]}
 
 # Automatically detect the repository name from the Git configuration
-# This removes the 'https://github.com/' and only captures 'owner/repo-name'
-REPO_NAME=$(git config --get remote.origin.url | sed -E 's|^https://[^/]+/||' | sed 's/\.git$//')
+REPO_URL=$(git config --get remote.origin.url)
+REPO_NAME=$(basename -s .git "$REPO_URL")  # Extract only the repository name
 
 # Create the index.html file with a redirect to the latest version
 INDEX_FILE="${BUILD_DIR}/index.html"
