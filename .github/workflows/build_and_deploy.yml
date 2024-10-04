@@ -24,7 +24,7 @@ jobs:
           pip install -U sphinx pydata_sphinx_theme sphinx_copybutton
           
       - name: Set executable permissions for build script
-        run: chmod +x docs/build_versions.sh
+        run: chmod +x docs/build_versions_gh.sh
 
       - name: Build Sphinx documentation
         run: |
