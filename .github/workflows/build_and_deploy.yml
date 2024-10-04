@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # Trigger the workflow on push to the main branch
+    paths:
+      - 'docs/**'  # Only trigger the workflow when files in the docs directory change
 
 jobs:
   build:
