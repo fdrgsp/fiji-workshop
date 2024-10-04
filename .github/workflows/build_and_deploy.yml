@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Sphinx documentation
         run: |
-          sh docs/build_versions.sh
+          bash docs/build_versions.sh
           touch docs/build/.nojekyll
       
       - name: Deploy to GitHub Pages
