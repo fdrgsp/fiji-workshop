@@ -42,16 +42,16 @@ cat <<EOL > $INDEX_FILE
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html">
+    <meta http-equiv="refresh" content="0; url=$REPO_NAME/versions/$LATEST_VERSION/index.html">
     <title>Documentation Redirect</title>
 </head>
 <body>
-    <p>If not redirected, <a href="https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html">click here</a>.</p>
+    <p>If not redirected, <a href="$REPO_NAME/versions/$LATEST_VERSION/index.html">click here</a>.</p>
 </body>
 </html>
 EOL
 
 echo "========================================="
 echo "All versions built successfully."
-echo "Website entry point will be: https://hms-iac.github.io/$REPO_NAME/versions/$LATEST_VERSION/index.html"
+echo "Website entry point will be: $REPO_NAME/versions/$LATEST_VERSION/index.html"
 echo "========================================="
