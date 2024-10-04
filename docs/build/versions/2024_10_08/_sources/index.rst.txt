@@ -21,14 +21,6 @@ The following materials were developed for a workshop taught in-person at Harvar
   
      <p><a href="_static/all_slides.pdf" download>Download all slides (PDF)</a></p>
 
-- **Workshop materials:**
-  
-  All images in a zip is too large to host on github. Fine is to host on google drive and share the link here, or download image by image.
-
-  .. raw:: html
-  
-     <p><a href="_static/images/H_E_retina.jpg" download>Download H&E example image</a></p>
-
 
 **Useful Links**
 ----------------
@@ -63,6 +55,7 @@ Below are the core sections of this workshop, each focusing on different aspects
    :maxdepth: 1
 
    exercises.rst
+   images.rst
 
 
 **Feedback**

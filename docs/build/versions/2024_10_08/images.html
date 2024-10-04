@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Image processing &#8212; Fiji workshop</title>
+    <title>Images &#8212; Fiji workshop</title>
   
   
   
@@ -41,11 +41,11 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '03_processing';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'images';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Segmentation and measurements" href="04_segmentation.html" />
-    <link rel="prev" title="Introduction to image analysis with ImageJ/Fiji" href="02_intro_to_fiji.html" />
+    <link rel="next" title="Feedback" href="feedback.html" />
+    <link rel="prev" title="Exercises" href="exercises.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -276,17 +276,17 @@ document.write(`
         <div class="sidebar-primary-item"><div class="toc-section">
     <h3>Section navigation</h3>  <!-- Change the heading to what you want -->
     <nav>
-      <ul class="current">
+      <ul>
 <li class="toctree-l1"><a class="reference internal" href="01_intro.html">Introduction to digital image analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_intro_to_fiji.html">Introduction to image analysis with ImageJ/Fiji</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Image processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_processing.html">Image processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_segmentation.html">Segmentation and measurements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_spotdetection.html">Spot detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_reproducibility.html">Reproducibility</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="exercises.html">Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Images</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="feedback.html">Feedback</a></li>
@@ -329,7 +329,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Image processing</li>
+    <li class="breadcrumb-item active" aria-current="page">Images</li>
   </ul>
 </nav>
 </div>
@@ -346,9 +346,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="image-processing">
-<h1>Image processing<a class="headerlink" href="#image-processing" title="Link to this heading">#</a></h1>
-<p>This page is empty for now.</p>
+  <section id="images">
+<h1>Images<a class="headerlink" href="#images" title="Link to this heading">#</a></h1>
+<ol class="arabic">
+<li><p><a href="_static/images/H_E_retina.jpg" download>[H_E_retina.jpg]</a></p></li>
+<li><p><a href="_static/images/mitosis-mixedStack.tif" download>[mitosis-mixedStack.tif]</a></p></li>
+<li><p><a href="_static/images/blobs-thr.tif" download>[blobs-thr.tif]</a></p></li>
+<li><p><a href="_static/images/HeLa.zip" download>[HeLa.zip]</a></p></li>
+</ol>
+<ol class="arabic" start="8">
+<li><p><a href="_static/images/DAPI/DAPI_wf_0.tif" download>[DAPI_wf_0.tif]</a></p></li>
+<li><p><a href="_static/images/DAPI/DAPI_wf_1.tif" download>[DAPI_wf_1.tif]</a></p></li>
+<li><p><a href="_static/images/DAPI/DAPI_wf_2.tif" download>[DAPI_wf_2.tif]</a></p></li>
+<li><p><a href="_static/images/DAPI/DAPI_wf_3.tif" download>[DAPI_wf_3.tif]</a></p></li>
+<li><p><a href="_static/images/DAPI/DAPI_wf_4.tif" download>[DAPI_wf_4.tif]</a></p></li>
+<li><p><a href="_static/images/for_exercise_1.4/single_channel_control.tif" download>[single_channel_control.tif]</a></p></li>
+<li><p><a href="_static/images/for_exercise_1.4/single_channel_control_1.tif" download>[single_channel_control_1.tif]</a></p></li>
+<li><p><a href="_static/images/for_exercise_1.4/single_channel_control_2.tif" download>[single_channel_control_2.tif]</a></p></li>
+<li><p><a href="_static/images/multichannel_images/multi_channel_001.tif" download>[multi_channel_001.tif]</a></p></li>
+<li><p><a href="_static/images/multichannel_images/multi_channel_002.tif" download>[multi_channel_002.tif]</a></p></li>
+<li><p><a href="_static/images/multichannel_images/multi_channel_003.tif" download>[multi_channel_003.tif]</a></p></li>
+<li><p><a href="_static/images/spot_detection/beads_001_ramp.tif" download>[beads_001_ramp.tif]</a></p></li>
+<li><p><a href="_static/images/spot_detection/beads_001.tif" download>[beads_001.tif]</a></p></li>
+<li><p><a href="_static/images/spot_detection/ramp_with_noise_5000.tif" download>[ramp_with_noise_5000.tif]</a></p></li>
+<li><p><a href="_static/images/spot_detection/with_noise_8000.tif" download>[with_noise_8000.tif]</a></p></li>
+<li><p><a href="_static/images/DAPI_mask.tif" download>[DAPI_mask.tif]</a></p></li>
+<li><p><a href="_static/images/single_channel.tif" download>[single_channel.tif]</a></p></li>
+</ol>
 </section>
 
 
@@ -362,20 +386,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02_intro_to_fiji.html"
+       href="exercises.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to image analysis with ImageJ/Fiji</p>
+        <p class="prev-next-title">Exercises</p>
       </div>
     </a>
     <a class="right-next"
-       href="04_segmentation.html"
+       href="feedback.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Segmentation and measurements</p>
+        <p class="prev-next-title">Feedback</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -392,7 +416,7 @@ document.write(`
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="_sources/03_processing.rst.txt">
+    <a href="_sources/images.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
