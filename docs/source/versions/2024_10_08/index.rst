@@ -32,7 +32,7 @@ The following materials were developed for a workshop taught in-person at Harvar
   
   .. raw:: html
   
-     <p><a href="_static/images/images.zip" download>Download all exercises (PDF)</a></p>
+     <p><a href="_static/images/images.zip" download>Download all images (ZIP)</a></p>
 
 
 **Useful Links**
