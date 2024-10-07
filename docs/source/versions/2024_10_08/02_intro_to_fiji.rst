@@ -1,7 +1,5 @@
 Introduction to image analysis with ImageJ/Fiji
-=========================================================
-
-This page contains the same PDF slides as before. 
+===================================================
 
 .. raw:: html
 

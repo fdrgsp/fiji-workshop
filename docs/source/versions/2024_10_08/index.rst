@@ -12,6 +12,7 @@ This course also stresses out the importance of reproducibility and quantiative 
 
 The following materials were developed for a workshop taught in-person at Harvard Medical School, organized by the `Image Analysis Collaboratory <https://iac.hms.harvard.edu/>`_.
 
+
 **Downloadable Resources**
 ---------------------------
 
@@ -20,6 +21,18 @@ The following materials were developed for a workshop taught in-person at Harvar
   .. raw:: html
   
      <p><a href="_static/all_slides.pdf" download>Download all slides (PDF)</a></p>
+
+- **Course exercises:**
+  
+  .. raw:: html
+  
+     <p><a href="_static/exercises/exercises.pdf" download>Download all exercises (PDF)</a></p>
+
+- **Course images:**
+  
+  .. raw:: html
+  
+     <p><a href="_static/images/images.zip" download>Download all images (ZIP)</a></p>
 
 
 **Useful Links**
