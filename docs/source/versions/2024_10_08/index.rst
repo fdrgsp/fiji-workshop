@@ -28,6 +28,12 @@ The following materials were developed for a workshop taught in-person at Harvar
   
      <p><a href="_static/exercises/exercises.pdf" download>Download all exercises (PDF)</a></p>
 
+- **Course images:**
+  
+  .. raw:: html
+  
+     <p><a href="_static/images/images.zip" download>Download all exercises (PDF)</a></p>
+
 
 **Useful Links**
 ----------------
