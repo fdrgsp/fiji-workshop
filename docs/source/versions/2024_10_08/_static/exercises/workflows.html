@@ -3,11 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-05-14 Tue 09:29 -->
+<!-- 2024-10-08 Tue 10:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introduction to FIJI - workflows v. 1.9</title>
-<meta name="author" content="Federico Gasparoli, Simon F. Nørrelykke" />
+<meta name="author" content="Federico Gasparoli, Szymon Stoma Simon F. Nørrelykke" />
 <meta name="keywords" content="fiji, imagej, teaching" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -208,141 +208,145 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org689bbc6">1. working with single channel images</a>
+<li><a href="#org2d96888">1. working with single channel images</a>
 <ul>
-<li><a href="#orge0f1282">1.1. opening the image and basic info</a></li>
-<li><a href="#org5cc1992">1.2. opening the image and basic drawing</a></li>
-<li><a href="#orga3a299d">1.3. image inspection</a></li>
-<li><a href="#org0f1b25f">1.4. adjust brightness/contrast of all open images</a></li>
-<li><a href="#org0244f78">1.5. copy pasting from image to image</a></li>
-<li><a href="#org987ad23">1.6. file handling and non-invasive editing</a></li>
-<li><a href="#orgdc138e7">1.7. file handling and invasive editing</a></li>
-<li><a href="#org9a0140c">1.8. LUT and calibration bar</a></li>
-<li><a href="#org05e55c3">1.9. 8-bit and 16-bit pseudocolor images</a></li>
-<li><a href="#orgb34fe52">1.10. pseudocolor image to RGB conversion</a></li>
-<li><a href="#org27bfc60">1.11. color spaces</a></li>
-<li><a href="#orgfabcf34">1.12. line-tool operations</a></li>
-<li><a href="#org288956e">1.13. histogram based intensity transformations</a></li>
-<li><a href="#org99200ac">1.14. histogram adjustments</a></li>
-<li><a href="#orgc575d92">1.15. using 16 bit images to increase precision</a></li>
+<li><a href="#org0a0b69f">1.1. opening the image and basic info</a></li>
+<li><a href="#orgd2567ee">1.2. opening the image and basic drawing</a></li>
+<li><a href="#org3d28c84">1.3. image inspection</a></li>
+<li><a href="#orged2af6e">1.4. adjust brightness/contrast of all open images</a></li>
+<li><a href="#org01ba46f">1.5. copy pasting from image to image</a></li>
+<li><a href="#org07f63a2">1.6. file handling and non-invasive editing</a></li>
+<li><a href="#org17a35c8">1.7. file handling and invasive editing</a></li>
+<li><a href="#orge19775d">1.8. LUT and calibration bar</a></li>
+<li><a href="#org0b083f8">1.9. 8-bit and 16-bit pseudocolor images</a></li>
+<li><a href="#orge3fd627">1.10. pseudocolor image to RGB conversion</a></li>
+<li><a href="#org4f36e3b">1.11. color spaces</a></li>
+<li><a href="#org71604d2">1.12. line-tool operations</a></li>
+<li><a href="#orgd4f249f">1.13. histogram based intensity transformations</a></li>
+<li><a href="#org4866c65">1.14. histogram adjustments</a></li>
+<li><a href="#org5f948ed">1.15. using 16 bit images to increase precision</a></li>
 </ul>
 </li>
-<li><a href="#orgc51b92f">2. working with multichannel images</a>
+<li><a href="#orga1f7a0a">2. working with multichannel images</a>
 <ul>
-<li><a href="#orgbf636c2">2.1. create new image</a></li>
-<li><a href="#orgf6159a7">2.2. composite images - splitting and merging</a></li>
-<li><a href="#orgbe77956">2.3. composite images - individual channel corrections</a></li>
-<li><a href="#org8d81d2a">2.4. microscopy stacks handling</a></li>
+<li><a href="#orgec31660">2.1. create new image</a></li>
+<li><a href="#org5ff6516">2.2. composite images - splitting and merging</a></li>
+<li><a href="#orgcc56240">2.3. composite images - individual channel corrections</a></li>
+<li><a href="#org8b8bc65">2.4. microscopy stacks handling</a></li>
 </ul>
 </li>
-<li><a href="#orgae943c0">3. image processing: thresholding &amp; filters</a>
+<li><a href="#org9600e38">3. image processing: thresholding &amp; filters</a>
 <ul>
-<li><a href="#org0f87729">3.1. basic concept of thresholding</a></li>
-<li><a href="#orgc562af1">3.2. basic concept of filtering: binary filters</a></li>
-<li><a href="#orgc506fe7">3.3. basic concept of filters: sharpen</a></li>
-<li><a href="#org3f731bd">3.4. basics mathematical operations on single image</a></li>
-<li><a href="#orga8f2673">3.5. beyond the limits of bits</a></li>
-<li><a href="#org34d2224">3.6. basics mathematical operations on two images</a></li>
-<li><a href="#org4d0b8ec">3.7. seeing JPEG artifacts</a></li>
+<li><a href="#org68b5ca8">3.1. basic concept of thresholding</a></li>
+<li><a href="#org95c80d9">3.2. basic concept of filtering: binary filters</a></li>
+<li><a href="#orgfcff972">3.3. basic concept of filters: sharpen</a></li>
+<li><a href="#org43e1115">3.4. edge filters - vertical stripes</a></li>
+<li><a href="#org24c26ff">3.5. edge filters - horizontal stripes</a></li>
+<li><a href="#org07147ec">3.6. edge filters - checkerboard</a></li>
+<li><a href="#orgc6c6012">3.7. basics mathematical operations on single image</a></li>
+<li><a href="#orgc29421d">3.8. beyond the limits of bits</a></li>
+<li><a href="#orgbb5f457">3.9. basics mathematical operations on two images</a></li>
+<li><a href="#orgd755e13">3.10. seeing JPEG artifacts</a></li>
 </ul>
 </li>
-<li><a href="#org3493bcf">4. background elimination</a>
+<li><a href="#orga9c3380">4. background elimination</a>
 <ul>
-<li><a href="#org396417a">4.1. dividing by background image</a></li>
-<li><a href="#org99d909b">4.2. background elimination - flat field correction</a></li>
-<li><a href="#org444db2a">4.3. background elimination - flat field correction using Image calculator</a></li>
+<li><a href="#orga4257af">4.1. dividing by background image</a></li>
+<li><a href="#orgac4c868">4.2. background elimination - flat field correction</a></li>
+<li><a href="#orga6a8e75">4.3. background elimination - flat field correction using Image calculator</a></li>
 </ul>
 </li>
-<li><a href="#org62685ea">5. manual measurements and working with rois</a>
+<li><a href="#org8bdd901">5. manual measurements and working with rois</a>
 <ul>
-<li><a href="#org195b180">5.1. measuring fluorescence within a selection</a></li>
-<li><a href="#org2525c64">5.2. measuring geometrical properties in the image</a></li>
+<li><a href="#org14cf500">5.1. measuring fluorescence within a selection</a></li>
+<li><a href="#orgab5c0c1">5.2. measuring geometrical properties in the image</a></li>
 </ul>
 </li>
-<li><a href="#org05a71d8">6. automatic measurements</a>
+<li><a href="#org3a28a81">6. automatic measurements</a>
 <ul>
-<li><a href="#org9ec31f8">6.1. identifying and measuring objects - basics</a></li>
-<li><a href="#org39763c2">6.2. identifying and measuring objects - cells #1</a></li>
-<li><a href="#orgd7efef1">6.3. identifying and measuring objects - cells #2</a></li>
+<li><a href="#org9cb3cef">6.1. identifying and measuring objects - basics</a></li>
+<li><a href="#orgc8da40f">6.2. identifying and measuring objects - cells #1</a></li>
+<li><a href="#orga435ece">6.3. identifying and measuring objects - cells #2</a></li>
 </ul>
 </li>
-<li><a href="#org32ada2a">7. Segmentation</a>
+<li><a href="#org37c0b31">7. Segmentation</a>
 <ul>
-<li><a href="#org4457dc7">7.1. DAPI segmentation with thresholding</a></li>
-<li><a href="#org2eb6e99">7.2. DAPI segmentation with Weka</a></li>
-<li><a href="#orge4f090a">7.3. DAPI double-segmentation with Weka</a></li>
-<li><a href="#org9cd4ed5">7.4. DAPI segmentation with StarDist</a></li>
-<li><a href="#org7bf957b">7.5. H&amp;E segmentation with StarDist</a></li>
+<li><a href="#org82f48fe">7.1. DAPI segmentation with thresholding</a></li>
+<li><a href="#orgde3228e">7.2. DAPI segmentation with filters and thresholding</a></li>
+<li><a href="#org1cad975">7.3. DAPI segmentation with Weka</a></li>
+<li><a href="#org1c8eda0">7.4. DAPI double-segmentation with Weka</a></li>
+<li><a href="#org68eecc1">7.5. DAPI segmentation with StarDist</a></li>
+<li><a href="#org4d07c6d">7.6. H&amp;E segmentation with StarDist</a></li>
 </ul>
 </li>
-<li><a href="#orge1480ff">8. Spot detection</a>
+<li><a href="#orgb2fee0e">8. Spot detection</a>
 <ul>
-<li><a href="#orgec36024">8.1. manual spot detection with the Multi-point Tool (IJ:19.6)</a></li>
-<li><a href="#orgf75ab86">8.2. algorithmic spot detection with Find Maxima (IJ:29.4)</a></li>
-<li><a href="#org6428085">8.3. automatic spot segmentation with thresholding</a></li>
-<li><a href="#org0951ef1">8.4. spot detection with noise</a></li>
-<li><a href="#org33a23a7">8.5. spot detection with variable background</a></li>
+<li><a href="#org203e3b4">8.1. manual spot detection with the Multi-point Tool (IJ:19.6)</a></li>
+<li><a href="#orge91374f">8.2. algorithmic spot detection with Find Maxima (IJ:29.4)</a></li>
+<li><a href="#orge2df8a5">8.3. automatic spot segmentation with thresholding</a></li>
+<li><a href="#org121bfb5">8.4. spot detection with noise</a></li>
+<li><a href="#org11588ea">8.5. spot detection with variable background</a></li>
 </ul>
 </li>
-<li><a href="#org2413e75">9. scripting / macros / automation basics</a>
+<li><a href="#orgbc0ee51">9. scripting / macros / automation basics</a>
 <ul>
-<li><a href="#org6d034f3">9.1. macro recorder - reproducing edits</a></li>
-<li><a href="#org3b9ea02">9.2. macro recorder - repeating actions on stack</a></li>
-<li><a href="#org1422970">9.3. automatic iteration</a></li>
-<li><a href="#org5cef8c1">9.4. automatic iteration - introducing function for stop condition</a></li>
-<li><a href="#orgb5099e3">9.5. adding macro to the menu</a></li>
-<li><a href="#org80f46db">9.6. iterations and variables in the macro: multi-measurement</a></li>
-<li><a href="#orgc78d60a">9.7. automatic measurement and saving to a file</a></li>
-<li><a href="#orgf997fb3">9.8. user input via GUI</a></li>
-<li><a href="#orgd113291">9.9. user input via image window / selection</a></li>
-<li><a href="#orgb50f407">9.10. batch mode - basics</a></li>
-<li><a href="#orgbb357bc">9.11. batch mode - full control on processing files</a></li>
+<li><a href="#org8676c17">9.1. macro recorder - reproducing edits</a></li>
+<li><a href="#org83f87b8">9.2. macro recorder - repeating actions on stack</a></li>
+<li><a href="#org2b85aba">9.3. automatic iteration</a></li>
+<li><a href="#orgd1f6b0a">9.4. automatic iteration - introducing function for stop condition</a></li>
+<li><a href="#org0978066">9.5. adding macro to the menu</a></li>
+<li><a href="#orgcf15f82">9.6. iterations and variables in the macro: multi-measurement</a></li>
+<li><a href="#orgfea7a58">9.7. automatic measurement and saving to a file</a></li>
+<li><a href="#org868ad04">9.8. user input via GUI</a></li>
+<li><a href="#orge89e8e8">9.9. user input via image window / selection</a></li>
+<li><a href="#orga345020">9.10. batch mode - basics</a></li>
+<li><a href="#orgc3f8966">9.11. batch mode - full control on processing files</a></li>
 </ul>
 </li>
-<li><a href="#orgbabf17f">10. workflow: tracking</a>
+<li><a href="#org7df3378">10. workflow: tracking</a>
 <ul>
-<li><a href="#org19c7c88">10.1. create image with moving dots</a></li>
-<li><a href="#orgf487611">10.2. tracking: process single image</a></li>
-<li><a href="#orgebfade4">10.3. tracking: process whole stack</a></li>
-<li><a href="#org3dca58b">10.4. tracking: process whole stack - enabling linking of the objects</a></li>
+<li><a href="#orgda6ffe7">10.1. create image with moving dots</a></li>
+<li><a href="#org25c3080">10.2. tracking: process single image</a></li>
+<li><a href="#orgf4b8b8c">10.3. tracking: process whole stack</a></li>
+<li><a href="#orgc3983ac">10.4. tracking: process whole stack - enabling linking of the objects</a></li>
 </ul>
 </li>
-<li><a href="#org8542cb4">11. workflow: FRET</a>
+<li><a href="#org9a91742">11. workflow: FRET</a>
 <ul>
-<li><a href="#orgca8e122">11.1. preparation part 1 - image import</a></li>
-<li><a href="#org50586fe">11.2. preparation part 2 - averaging</a></li>
-<li><a href="#org3b64d1d">11.3. preparation part 3 - masks</a></li>
-<li><a href="#org890a9f6">11.4. preparation part 4 - ratios</a></li>
-<li><a href="#org6d64718">11.5. analysis - problem: cell population</a></li>
-<li><a href="#org6803c38">11.6. preparation part 5 - cropping</a></li>
-<li><a href="#orge4877aa">11.7. analysis - problem: chromatin change</a></li>
-<li><a href="#org2ef8e7a">11.8. analysis - problem: manual labor</a></li>
+<li><a href="#orgdfaf9c6">11.1. preparation part 1 - image import</a></li>
+<li><a href="#org62d3b52">11.2. preparation part 2 - averaging</a></li>
+<li><a href="#orgeaa7661">11.3. preparation part 3 - masks</a></li>
+<li><a href="#orgdb8e472">11.4. preparation part 4 - ratios</a></li>
+<li><a href="#org80e6f0c">11.5. analysis - problem: cell population</a></li>
+<li><a href="#org307ee4d">11.6. preparation part 5 - cropping</a></li>
+<li><a href="#org9cf070b">11.7. analysis - problem: chromatin change</a></li>
+<li><a href="#org13e48d2">11.8. analysis - problem: manual labor</a></li>
 </ul>
 </li>
-<li><a href="#org91c26dc">12. workflow: scratch assay</a>
+<li><a href="#orgebe0a46">12. workflow: scratch assay</a>
 <ul>
-<li><a href="#orgda9b102">12.1. part 1</a></li>
-<li><a href="#org348ec43">12.2. part 2</a></li>
-<li><a href="#org61efc06">12.3. part 3</a></li>
+<li><a href="#org5b26e16">12.1. part 1</a></li>
+<li><a href="#org7b1a64a">12.2. part 2</a></li>
+<li><a href="#org5197331">12.3. part 3</a></li>
 </ul>
 </li>
-<li><a href="#orgf8e9ef7">13. various useful tools</a>
+<li><a href="#orgb52a6c4">13. various useful tools</a>
 <ul>
-<li><a href="#orgae8c454">13.1. installing plugins</a></li>
-<li><a href="#orgc9c3352">13.2. using line selection to make a &ldquo;straighten&rdquo; image</a></li>
-<li><a href="#org8550bb0">13.3. using 3D viewer</a></li>
-<li><a href="#orgc3fe9c7">13.4. preparing images for publications</a></li>
+<li><a href="#orgac665b1">13.1. installing plugins</a></li>
+<li><a href="#org17e9b93">13.2. using line selection to make a &ldquo;straighten&rdquo; image</a></li>
+<li><a href="#org3833099">13.3. using 3D viewer</a></li>
+<li><a href="#org6376887">13.4. preparing images for publications</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org689bbc6" class="outline-2">
-<h2 id="org689bbc6"><span class="section-number-2">1.</span> working with single channel images</h2>
+<div id="outline-container-org2d96888" class="outline-2">
+<h2 id="org2d96888"><span class="section-number-2">1.</span> working with single channel images</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orge0f1282" class="outline-3">
-<h3 id="orge0f1282"><span class="section-number-3">1.1.</span> opening the image and basic info</h3>
+<div id="outline-container-org0a0b69f" class="outline-3">
+<h3 id="org0a0b69f"><span class="section-number-3">1.1.</span> opening the image and basic info</h3>
 <div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; HeLa (IJ:26.2)</li>
@@ -352,8 +356,8 @@
 </div>
 </div>
 
-<div id="outline-container-org5cc1992" class="outline-3">
-<h3 id="org5cc1992"><span class="section-number-3">1.2.</span> opening the image and basic drawing</h3>
+<div id="outline-container-orgd2567ee" class="outline-3">
+<h3 id="orgd2567ee"><span class="section-number-3">1.2.</span> opening the image and basic drawing</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li><b>target:</b> &ldquo;convert&rdquo; [geometry-source.tif] into [geometry-target.tif]</li>
@@ -389,8 +393,8 @@
 </div>
 </div>
 
-<div id="outline-container-orga3a299d" class="outline-3">
-<h3 id="orga3a299d"><span class="section-number-3">1.3.</span> image inspection</h3>
+<div id="outline-container-org3d28c84" class="outline-3">
+<h3 id="org3d28c84"><span class="section-number-3">1.3.</span> image inspection</h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li>open the &ldquo;single_channel.tif&rdquo; image (drag &amp; drop, or File &gt; Open)</li>
@@ -413,8 +417,8 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-org0f1b25f" class="outline-3">
-<h3 id="org0f1b25f"><span class="section-number-3">1.4.</span> adjust brightness/contrast of all open images</h3>
+<div id="outline-container-orged2af6e" class="outline-3">
+<h3 id="orged2af6e"><span class="section-number-3">1.4.</span> adjust brightness/contrast of all open images</h3>
 <div class="outline-text-3" id="text-1-4">
 <ol class="org-ol">
 <li>open three single-channel images, in folder &ldquo;for_exercise_1.4&rdquo; (drag &amp; drop, or File &gt; Open)</li>
@@ -436,8 +440,8 @@
 </div>
 </div>
 
-<div id="outline-container-org0244f78" class="outline-3">
-<h3 id="org0244f78"><span class="section-number-3">1.5.</span> copy pasting from image to image</h3>
+<div id="outline-container-org01ba46f" class="outline-3">
+<h3 id="org01ba46f"><span class="section-number-3">1.5.</span> copy pasting from image to image</h3>
 <div class="outline-text-3" id="text-1-5">
 <ol class="org-ol">
 <li><b>target:</b> create a figure illustrating the difference in C. elegans
@@ -494,8 +498,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-org987ad23" class="outline-3">
-<h3 id="org987ad23"><span class="section-number-3">1.6.</span> file handling and non-invasive editing</h3>
+<div id="outline-container-org07f63a2" class="outline-3">
+<h3 id="org07f63a2"><span class="section-number-3">1.6.</span> file handling and non-invasive editing</h3>
 <div class="outline-text-3" id="text-1-6">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; blobs (shift-b) (IJ:26.4)</li>
@@ -512,8 +516,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-orgdc138e7" class="outline-3">
-<h3 id="orgdc138e7"><span class="section-number-3">1.7.</span> file handling and invasive editing</h3>
+<div id="outline-container-org17a35c8" class="outline-3">
+<h3 id="org17a35c8"><span class="section-number-3">1.7.</span> file handling and invasive editing</h3>
 <div class="outline-text-3" id="text-1-7">
 <ol class="org-ol">
 <li>file &gt; open : [blobs1.tif] (IJ:26.2)
@@ -539,8 +543,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-org9a0140c" class="outline-3">
-<h3 id="org9a0140c"><span class="section-number-3">1.8.</span> LUT and calibration bar</h3>
+<div id="outline-container-orge19775d" class="outline-3">
+<h3 id="orge19775d"><span class="section-number-3">1.8.</span> LUT and calibration bar</h3>
 <div class="outline-text-3" id="text-1-8">
 <ol class="org-ol">
 <li><b>target:</b> verrify that images &ldquo;looking&rdquo; alike might be different</li>
@@ -563,8 +567,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-org05e55c3" class="outline-3">
-<h3 id="org05e55c3"><span class="section-number-3">1.9.</span> 8-bit and 16-bit pseudocolor images</h3>
+<div id="outline-container-org0b083f8" class="outline-3">
+<h3 id="org0b083f8"><span class="section-number-3">1.9.</span> 8-bit and 16-bit pseudocolor images</h3>
 <div class="outline-text-3" id="text-1-9">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; blobs (shift-b) (IJ:26.4)</li>
@@ -599,8 +603,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-orgb34fe52" class="outline-3">
-<h3 id="orgb34fe52"><span class="section-number-3">1.10.</span> pseudocolor image to RGB conversion</h3>
+<div id="outline-container-orge3fd627" class="outline-3">
+<h3 id="orge3fd627"><span class="section-number-3">1.10.</span> pseudocolor image to RGB conversion</h3>
 <div class="outline-text-3" id="text-1-10">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; blobs (shift-b) (IJ:26.4)</li>
@@ -638,8 +642,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-org27bfc60" class="outline-3">
-<h3 id="org27bfc60"><span class="section-number-3">1.11.</span> color spaces</h3>
+<div id="outline-container-org4f36e3b" class="outline-3">
+<h3 id="org4f36e3b"><span class="section-number-3">1.11.</span> color spaces</h3>
 <div class="outline-text-3" id="text-1-11">
 <ol class="org-ol">
 <li>file &gt; open : [blob-combined.tif] (IJ:26.2)</li>
@@ -653,8 +657,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-orgfabcf34" class="outline-3">
-<h3 id="orgfabcf34"><span class="section-number-3">1.12.</span> line-tool operations</h3>
+<div id="outline-container-org71604d2" class="outline-3">
+<h3 id="org71604d2"><span class="section-number-3">1.12.</span> line-tool operations</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
 <b>goal:</b> familiarize you with manual histogram adjustment and some built in rutines making this task easier
@@ -684,8 +688,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-org288956e" class="outline-3">
-<h3 id="org288956e"><span class="section-number-3">1.13.</span> histogram based intensity transformations</h3>
+<div id="outline-container-orgd4f249f" class="outline-3">
+<h3 id="orgd4f249f"><span class="section-number-3">1.13.</span> histogram based intensity transformations</h3>
 <div class="outline-text-3" id="text-1-13">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; M51 galaxy (IJ:26.4)</li>
@@ -718,8 +722,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-org99200ac" class="outline-3">
-<h3 id="org99200ac"><span class="section-number-3">1.14.</span> histogram adjustments</h3>
+<div id="outline-container-org4866c65" class="outline-3">
+<h3 id="org4866c65"><span class="section-number-3">1.14.</span> histogram adjustments</h3>
 <div class="outline-text-3" id="text-1-14">
 <ol class="org-ol">
 <li><b>target:</b> familiarize with manual histogram adjustment and HiLo LUT</li>
@@ -744,8 +748,8 @@ phenotype (see elegance-fig.tif) based on elegans.tif example</li>
 </div>
 </div>
 
-<div id="outline-container-orgc575d92" class="outline-3">
-<h3 id="orgc575d92"><span class="section-number-3">1.15.</span> using 16 bit images to increase precision</h3>
+<div id="outline-container-org5f948ed" class="outline-3">
+<h3 id="org5f948ed"><span class="section-number-3">1.15.</span> using 16 bit images to increase precision</h3>
 <div class="outline-text-3" id="text-1-15">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; M51 galaxy (IJ:26.4)</li>
@@ -792,12 +796,12 @@ selection] (IJ:19.1)</li>
 </div>
 </div>
 
-<div id="outline-container-orgc51b92f" class="outline-2">
-<h2 id="orgc51b92f"><span class="section-number-2">2.</span> working with multichannel images</h2>
+<div id="outline-container-orga1f7a0a" class="outline-2">
+<h2 id="orga1f7a0a"><span class="section-number-2">2.</span> working with multichannel images</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgbf636c2" class="outline-3">
-<h3 id="orgbf636c2"><span class="section-number-3">2.1.</span> create new image</h3>
+<div id="outline-container-orgec31660" class="outline-3">
+<h3 id="orgec31660"><span class="section-number-3">2.1.</span> create new image</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li><b>target:</b> create a sketch of a cell as in [cell.tif]</li>
@@ -856,8 +860,8 @@ selection] (IJ:19.1)</li>
 </div>
 </div>
 
-<div id="outline-container-orgf6159a7" class="outline-3">
-<h3 id="orgf6159a7"><span class="section-number-3">2.2.</span> composite images - splitting and merging</h3>
+<div id="outline-container-org5ff6516" class="outline-3">
+<h3 id="org5ff6516"><span class="section-number-3">2.2.</span> composite images - splitting and merging</h3>
 <div class="outline-text-3" id="text-2-2">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; fluorescent cells (IJ:26.4)</li>
@@ -884,8 +888,8 @@ selection] (IJ:19.1)</li>
 </div>
 </div>
 
-<div id="outline-container-orgbe77956" class="outline-3">
-<h3 id="orgbe77956"><span class="section-number-3">2.3.</span> composite images - individual channel corrections</h3>
+<div id="outline-container-orgcc56240" class="outline-3">
+<h3 id="orgcc56240"><span class="section-number-3">2.3.</span> composite images - individual channel corrections</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <b>goal:</b> create an image with brightfield / red / cyan channels which shows locations with strongest expression of these fluorophores 
@@ -903,8 +907,8 @@ selection] (IJ:19.1)</li>
 </div>
 </div>
 
-<div id="outline-container-org8d81d2a" class="outline-3">
-<h3 id="org8d81d2a"><span class="section-number-3">2.4.</span> microscopy stacks handling</h3>
+<div id="outline-container-org8b8bc65" class="outline-3">
+<h3 id="org8b8bc65"><span class="section-number-3">2.4.</span> microscopy stacks handling</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 <b>goal:</b> make a video and a picture for publication showing progression of mitosis in time (see: mitosis-montage.tif)
@@ -970,12 +974,12 @@ selection] (IJ:19.1)</li>
 </div>
 </div>
 
-<div id="outline-container-orgae943c0" class="outline-2">
-<h2 id="orgae943c0"><span class="section-number-2">3.</span> image processing: thresholding &amp; filters</h2>
+<div id="outline-container-org9600e38" class="outline-2">
+<h2 id="org9600e38"><span class="section-number-2">3.</span> image processing: thresholding &amp; filters</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0f87729" class="outline-3">
-<h3 id="org0f87729"><span class="section-number-3">3.1.</span> basic concept of thresholding</h3>
+<div id="outline-container-org68b5ca8" class="outline-3">
+<h3 id="org68b5ca8"><span class="section-number-3">3.1.</span> basic concept of thresholding</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <b>target:</b> Threshold blob.gif image to create a mask enabling
@@ -999,8 +1003,8 @@ image:</li>
 </div>
 </div>
 
-<div id="outline-container-orgc562af1" class="outline-3">
-<h3 id="orgc562af1"><span class="section-number-3">3.2.</span> basic concept of filtering: binary filters</h3>
+<div id="outline-container-org95c80d9" class="outline-3">
+<h3 id="org95c80d9"><span class="section-number-3">3.2.</span> basic concept of filtering: binary filters</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <b>goal:</b> see different binary operations in action
@@ -1022,8 +1026,8 @@ image:</li>
 </div>
 </div>
 
-<div id="outline-container-orgc506fe7" class="outline-3">
-<h3 id="orgc506fe7"><span class="section-number-3">3.3.</span> basic concept of filters: sharpen</h3>
+<div id="outline-container-orgfcff972" class="outline-3">
+<h3 id="orgfcff972"><span class="section-number-3">3.3.</span> basic concept of filters: sharpen</h3>
 <div class="outline-text-3" id="text-3-3">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; hela cells (IJ:26.4)</li>
@@ -1035,9 +1039,149 @@ image:</li>
 </div>
 </div>
 
-<div id="outline-container-org3f731bd" class="outline-3">
-<h3 id="org3f731bd"><span class="section-number-3">3.4.</span> basics mathematical operations on single image</h3>
+<div id="outline-container-org43e1115" class="outline-3">
+<h3 id="org43e1115"><span class="section-number-3">3.4.</span> edge filters - vertical stripes</h3>
 <div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>open <code>vertical_stripes.tif</code></li>
+<li>duplicate the <code>vertical_stripes.tif</code> original image
+<ul class="org-ul">
+<li><code>Image &gt; Duplicate</code> (shortcut: <code>shift-d</code>) (IJ:28.9)</li>
+</ul></li>
+<li>apply horizontal Prewitt filter:
+<ul class="org-ul">
+<li><code>Process &gt; Filters &gt; Convolve…</code></li>
+<li><p>
+as kernel input (Prewitt):
+</p>
+<pre class="example" id="org5604eba">
+-1 -1 -1
+0 0 0
+1 1 1
+</pre></li>
+<li>click on OK.</li>
+<li>do you understand the output of this process?</li>
+</ul></li>
+<li>duplicate the <code>vertical_stripes.tif</code> original image</li>
+<li>apply vertical Prewitt filter:
+<ul class="org-ul">
+<li><code>Process &gt; Filters &gt; Convolve…</code></li>
+<li><p>
+as kernel input (Prewitt):
+</p>
+<pre class="example" id="orgc326444">
+-1 0 1
+-1 0 1
+-1 0 1
+</pre></li>
+<li>click on <code>OK</code>.</li>
+<li>do you understand the output of this process?</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-org24c26ff" class="outline-3">
+<h3 id="org24c26ff"><span class="section-number-3">3.5.</span> edge filters - horizontal stripes</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+<i>The steps in this exercise are identical to 3.4&#x2014;only the input image differs</i>
+</p>
+<ol class="org-ol">
+<li>open <code>horizontal_stripes.tif</code></li>
+<li>duplicate the <code>horizontal_stripes.tif</code> original image
+<ul class="org-ul">
+<li><code>Image &gt; Duplicate</code> (shortcut: <code>shift-d</code>) (IJ:28.9)</li>
+</ul></li>
+<li>apply horizontal Prewitt filter:
+<ul class="org-ul">
+<li><code>Process &gt; Filters &gt; Convolve…</code></li>
+<li><p>
+as kernel input (Prewitt):
+</p>
+<pre class="example" id="orgfe397f3">
+-1 -1 -1
+0 0 0
+1 1 1
+</pre></li>
+<li>click on OK.</li>
+<li>do you understand the output of this process?</li>
+</ul></li>
+<li>duplicate the <code>horizontal_stripes.tif</code> original image</li>
+<li>apply vertical Prewitt filter:
+<ul class="org-ul">
+<li><code>Process &gt; Filters &gt; Convolve…</code></li>
+<li><p>
+as kernel input (Prewitt):
+</p>
+<pre class="example" id="orgeba5c79">
+-1 0 1
+-1 0 1
+-1 0 1
+</pre></li>
+<li>click on <code>OK</code>.</li>
+<li>do you understand the output of this process?</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org07147ec" class="outline-3">
+<h3 id="org07147ec"><span class="section-number-3">3.6.</span> edge filters - checkerboard</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+<i>The steps in this exercise are identical to 3.4 or 3.5&#x2014;only the input image differs</i>
+</p>
+<ol class="org-ol">
+<li>open <code>checkerboard.tif</code></li>
+<li>duplicate the <code>checkerboard.tif</code> original image
+<ul class="org-ul">
+<li><code>Image &gt; Duplicate</code> (shortcut: <code>shift-d</code>) (IJ:28.9)</li>
+</ul></li>
+<li>apply horizontal Prewitt filter:
+<ul class="org-ul">
+<li><code>Process &gt; Filters &gt; Convolve…</code></li>
+<li><p>
+as kernel input (Prewitt):
+</p>
+<pre class="example" id="orgbd048b0">
+-1 -1 -1
+0 0 0
+1 1 1
+</pre></li>
+<li>click on OK.</li>
+<li>do you understand the output of this process?</li>
+</ul></li>
+<li>duplicate the <code>checkerboard.tif</code> original image</li>
+<li>apply vertical Prewitt filter:
+<ul class="org-ul">
+<li><code>Process &gt; Filters &gt; Convolve…</code></li>
+<li><p>
+as kernel input (Prewitt):
+</p>
+<pre class="example" id="org608ab3c">
+-1 0 1
+-1 0 1
+-1 0 1
+</pre></li>
+<li>click on <code>OK</code>.</li>
+<li>do you understand the output of this process?</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgc6c6012" class="outline-3">
+<h3 id="orgc6c6012"><span class="section-number-3">3.7.</span> basics mathematical operations on single image</h3>
+<div class="outline-text-3" id="text-3-7">
 <ol class="org-ol">
 <li>open : [f2.tif] (IJ:26.2)</li>
 <li>process &gt; math &gt; add (IJ:29.9.1)
@@ -1048,9 +1192,9 @@ image:</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orga8f2673" class="outline-3">
-<h3 id="orga8f2673"><span class="section-number-3">3.5.</span> beyond the limits of bits</h3>
-<div class="outline-text-3" id="text-3-5">
+<div id="outline-container-orgc29421d" class="outline-3">
+<h3 id="orgc29421d"><span class="section-number-3">3.8.</span> beyond the limits of bits</h3>
+<div class="outline-text-3" id="text-3-8">
 <ol class="org-ol">
 <li><b>target:</b> Perform consecutive addition and subtraction of the
 same value from an image. Compare the results with original image.</li>
@@ -1071,9 +1215,9 @@ same value from an image. Compare the results with original image.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org34d2224" class="outline-3">
-<h3 id="org34d2224"><span class="section-number-3">3.6.</span> basics mathematical operations on two images</h3>
-<div class="outline-text-3" id="text-3-6">
+<div id="outline-container-orgbb5f457" class="outline-3">
+<h3 id="orgbb5f457"><span class="section-number-3">3.9.</span> basics mathematical operations on two images</h3>
+<div class="outline-text-3" id="text-3-9">
 <ol class="org-ol">
 <li>open : [f2.tif] and [f1.tif] (IJ:26.2)</li>
 <li>process &gt; calculator (IJ:29.13)
@@ -1085,9 +1229,9 @@ same value from an image. Compare the results with original image.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org4d0b8ec" class="outline-3">
-<h3 id="org4d0b8ec"><span class="section-number-3">3.7.</span> seeing JPEG artifacts</h3>
-<div class="outline-text-3" id="text-3-7">
+<div id="outline-container-orgd755e13" class="outline-3">
+<h3 id="orgd755e13"><span class="section-number-3">3.10.</span> seeing JPEG artifacts</h3>
+<div class="outline-text-3" id="text-3-10">
 <p>
 <b>target:</b> Save the same image in TIFF and JPEG formats. Compare the differences
 </p>
@@ -1135,12 +1279,12 @@ same value from an image. Compare the results with original image.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org3493bcf" class="outline-2">
-<h2 id="org3493bcf"><span class="section-number-2">4.</span> background elimination</h2>
+<div id="outline-container-orga9c3380" class="outline-2">
+<h2 id="orga9c3380"><span class="section-number-2">4.</span> background elimination</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org396417a" class="outline-3">
-<h3 id="org396417a"><span class="section-number-3">4.1.</span> dividing by background image</h3>
+<div id="outline-container-orga4257af" class="outline-3">
+<h3 id="orga4257af"><span class="section-number-3">4.1.</span> dividing by background image</h3>
 <div class="outline-text-3" id="text-4-1">
 <ol class="org-ol">
 <li><b>target:</b> Estimate the local ratio of increase by dividing the
@@ -1169,8 +1313,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org99d909b" class="outline-3">
-<h3 id="org99d909b"><span class="section-number-3">4.2.</span> background elimination - flat field correction</h3>
+<div id="outline-container-orgac4c868" class="outline-3">
+<h3 id="orgac4c868"><span class="section-number-3">4.2.</span> background elimination - flat field correction</h3>
 <div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>file &gt; open &gt; cell colony (IJ:26.4)</li>
@@ -1190,8 +1334,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org444db2a" class="outline-3">
-<h3 id="org444db2a"><span class="section-number-3">4.3.</span> background elimination - flat field correction using Image calculator</h3>
+<div id="outline-container-orga6a8e75" class="outline-3">
+<h3 id="orga6a8e75"><span class="section-number-3">4.3.</span> background elimination - flat field correction using Image calculator</h3>
 <div class="outline-text-3" id="text-4-3">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; cell colony (IJ:26.4)</li>
@@ -1204,12 +1348,12 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org62685ea" class="outline-2">
-<h2 id="org62685ea"><span class="section-number-2">5.</span> manual measurements and working with rois</h2>
+<div id="outline-container-org8bdd901" class="outline-2">
+<h2 id="org8bdd901"><span class="section-number-2">5.</span> manual measurements and working with rois</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org195b180" class="outline-3">
-<h3 id="org195b180"><span class="section-number-3">5.1.</span> measuring fluorescence within a selection</h3>
+<div id="outline-container-org14cf500" class="outline-3">
+<h3 id="org14cf500"><span class="section-number-3">5.1.</span> measuring fluorescence within a selection</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li>task : measure average flu. in Red channel in neuron</li>
@@ -1274,8 +1418,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org2525c64" class="outline-3">
-<h3 id="org2525c64"><span class="section-number-3">5.2.</span> measuring geometrical properties in the image</h3>
+<div id="outline-container-orgab5c0c1" class="outline-3">
+<h3 id="orgab5c0c1"><span class="section-number-3">5.2.</span> measuring geometrical properties in the image</h3>
 <div class="outline-text-3" id="text-5-2">
 <ol class="org-ol">
 <li>task : measure average flu. in Red channel in neuron</li>
@@ -1304,12 +1448,12 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org05a71d8" class="outline-2">
-<h2 id="org05a71d8"><span class="section-number-2">6.</span> automatic measurements</h2>
+<div id="outline-container-org3a28a81" class="outline-2">
+<h2 id="org3a28a81"><span class="section-number-2">6.</span> automatic measurements</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org9ec31f8" class="outline-3">
-<h3 id="org9ec31f8"><span class="section-number-3">6.1.</span> identifying and measuring objects - basics</h3>
+<div id="outline-container-org9cb3cef" class="outline-3">
+<h3 id="org9cb3cef"><span class="section-number-3">6.1.</span> identifying and measuring objects - basics</h3>
 <div class="outline-text-3" id="text-6-1">
 <ol class="org-ol">
 <li>open : [blobs-thr.tif] (IJ:26.2)</li>
@@ -1331,8 +1475,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org39763c2" class="outline-3">
-<h3 id="org39763c2"><span class="section-number-3">6.2.</span> identifying and measuring objects - cells #1</h3>
+<div id="outline-container-orgc8da40f" class="outline-3">
+<h3 id="orgc8da40f"><span class="section-number-3">6.2.</span> identifying and measuring objects - cells #1</h3>
 <div class="outline-text-3" id="text-6-2">
 <ol class="org-ol">
 <li><b>target:</b> measure distribution of RFP signal inside nucleus across cell population</li>
@@ -1346,8 +1490,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-orgd7efef1" class="outline-3">
-<h3 id="orgd7efef1"><span class="section-number-3">6.3.</span> identifying and measuring objects - cells #2</h3>
+<div id="outline-container-orga435ece" class="outline-3">
+<h3 id="orga435ece"><span class="section-number-3">6.3.</span> identifying and measuring objects - cells #2</h3>
 <div class="outline-text-3" id="text-6-3">
 <ol class="org-ol">
 <li><b>target:</b> measure distribution of RFP signal inside nucleus across cell population</li>
@@ -1377,15 +1521,15 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org32ada2a" class="outline-2">
-<h2 id="org32ada2a"><span class="section-number-2">7.</span> Segmentation</h2>
+<div id="outline-container-org37c0b31" class="outline-2">
+<h2 id="org37c0b31"><span class="section-number-2">7.</span> Segmentation</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org4457dc7" class="outline-3">
-<h3 id="org4457dc7"><span class="section-number-3">7.1.</span> DAPI segmentation with thresholding</h3>
+<div id="outline-container-org82f48fe" class="outline-3">
+<h3 id="org82f48fe"><span class="section-number-3">7.1.</span> DAPI segmentation with thresholding</h3>
 <div class="outline-text-3" id="text-7-1">
 <ol class="org-ol">
-<li>open <code>hela-1.tif</code> (single-channel image)</li>
+<li>open <code>DAPI.tif</code> (single-channel image)</li>
 <li>change LUT to Grays</li>
 <li><code>Image &gt; Adjust &gt; Threshold</code></li>
 <li>understand the function of the <code>Dark Background</code> checkbox (inspect pixel values)</li>
@@ -1396,17 +1540,46 @@ on the quatlity of the result.</li>
 </ul></li>
 <li>try different display options (<code>Red</code>, <code>B&amp;W</code>, <code>Over/Under</code>)&#x2014;do you understand what they show</li>
 <li>when happy with result, click <code>Apply</code></li>
-<li>save the resulting binary image (<code>File &gt; Save As &gt; Tiff...</code> ) with name &ldquo;myThresholdHeLa.tif&rdquo;</li>
+<li>save the resulting binary image (<code>File &gt; Save As &gt; Tiff...</code> )</li>
 <li>proceed with <code>Analyze &gt; Analyze Particles</code> etc</li>
-<li>bonus: use morphological operations to clean up results, <i>before</i> analyzing particles</li>
-<li>bonus: smooth, e.g. with Gaussian or median filter, the image <i>before</i> thresholding</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgde3228e" class="outline-3">
+<h3 id="orgde3228e"><span class="section-number-3">7.2.</span> DAPI segmentation with filters and thresholding</h3>
+<div class="outline-text-3" id="text-7-2">
+<ol class="org-ol">
+<li>open <code>DAPI_noise.tif</code></li>
+<li>change LUT to Grays</li>
+<li><code>Image &gt; Adjust &gt; Threshold</code></li>
+<li>understand the function of the Dark Background checkbox (inspect pixel values)</li>
+<li>try setting sliders manually. Can you find a good threshold range?</li>
+<li>try different algorithms. Can you find one that gives a good result? 		
+<ul class="org-ul">
+<li><code>Image &gt; Adjust &gt; Auto Threshold</code>, if you want to see all at the same time</li>
+</ul></li>
+<li>duplicate the <code>DAPI_noise.tif</code> image
+<ul class="org-ul">
+<li><code>Image &gt; Duplicate</code> (shortcut: <code>shift-d</code>) (IJ:28.9)</li>
+</ul></li>
+<li>apply a filter of your choice (Mean, Gaussian Blur, Median, …)
+<ul class="org-ul">
+<li><code>Process &gt; Filters</code></li>
+<li>check the <code>Preview</code> checkbox</li>
+<li>change the <code>Radius</code> / <code>Sigma</code>. What happens to the image?</li>
+<li>when you are happy, click on <code>OK</code></li>
+</ul></li>
+<li>now perform steps 5 and 6 again</li>
+<li>repeat steps 8, 5 and 6 until happy with result, then click <code>Apply</code></li>
+<li>save the resulting binary image (<code>File &gt; Save As &gt; Tiff...</code> )</li>
+<li>proceed with <code>Analyze &gt; Analyze Particles</code> etc</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org2eb6e99" class="outline-3">
-<h3 id="org2eb6e99"><span class="section-number-3">7.2.</span> DAPI segmentation with Weka</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-org1cad975" class="outline-3">
+<h3 id="org1cad975"><span class="section-number-3">7.3.</span> DAPI segmentation with Weka</h3>
+<div class="outline-text-3" id="text-7-3">
 <ol class="org-ol">
 <li>open <code>hela-1.tif</code> (single-channel image)</li>
 <li>change LUT to Grays</li>
@@ -1432,9 +1605,9 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-orge4f090a" class="outline-3">
-<h3 id="orge4f090a"><span class="section-number-3">7.3.</span> DAPI double-segmentation with Weka</h3>
-<div class="outline-text-3" id="text-7-3">
+<div id="outline-container-org1c8eda0" class="outline-3">
+<h3 id="org1c8eda0"><span class="section-number-3">7.4.</span> DAPI double-segmentation with Weka</h3>
+<div class="outline-text-3" id="text-7-4">
 <ol class="org-ol">
 <li>open hela-1.tif (single-channel image)</li>
 <li>change LUT to Grays</li>
@@ -1461,9 +1634,9 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org9cd4ed5" class="outline-3">
-<h3 id="org9cd4ed5"><span class="section-number-3">7.4.</span> DAPI segmentation with StarDist</h3>
-<div class="outline-text-3" id="text-7-4">
+<div id="outline-container-org68eecc1" class="outline-3">
+<h3 id="org68eecc1"><span class="section-number-3">7.5.</span> DAPI segmentation with StarDist</h3>
+<div class="outline-text-3" id="text-7-5">
 <ol class="org-ol">
 <li>Follow StarDist installation instructions from here
 <ul class="org-ul">
@@ -1484,9 +1657,9 @@ on the quatlity of the result.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org7bf957b" class="outline-3">
-<h3 id="org7bf957b"><span class="section-number-3">7.5.</span> H&amp;E segmentation with StarDist</h3>
-<div class="outline-text-3" id="text-7-5">
+<div id="outline-container-org4d07c6d" class="outline-3">
+<h3 id="org4d07c6d"><span class="section-number-3">7.6.</span> H&amp;E segmentation with StarDist</h3>
+<div class="outline-text-3" id="text-7-6">
 <ol class="org-ol">
 <li>open <code>H&amp;E_retina.jpg</code> (RGB image)</li>
 <li><code>Plugins &gt; StarDist &gt; StarDist 2D</code></li>
@@ -1508,12 +1681,12 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-orge1480ff" class="outline-2">
-<h2 id="orge1480ff"><span class="section-number-2">8.</span> Spot detection</h2>
+<div id="outline-container-orgb2fee0e" class="outline-2">
+<h2 id="orgb2fee0e"><span class="section-number-2">8.</span> Spot detection</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orgec36024" class="outline-3">
-<h3 id="orgec36024"><span class="section-number-3">8.1.</span> manual spot detection with the Multi-point Tool (<a href="https://imagej.nih.gov/ij/docs/guide/146-19.html#toc-Subsection-19.6">IJ:19.6</a>)</h3>
+<div id="outline-container-org203e3b4" class="outline-3">
+<h3 id="org203e3b4"><span class="section-number-3">8.1.</span> manual spot detection with the Multi-point Tool (<a href="https://imagej.nih.gov/ij/docs/guide/146-19.html#toc-Subsection-19.6">IJ:19.6</a>)</h3>
 <div class="outline-text-3" id="text-8-1">
 <ol class="org-ol">
 <li>read all the next steps before beginning</li>
@@ -1528,8 +1701,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-orgf75ab86" class="outline-3">
-<h3 id="orgf75ab86"><span class="section-number-3">8.2.</span> algorithmic spot detection with Find Maxima (<a href="https://imagej.nih.gov/ij/docs/guide/146-29.html#toc-Subsection-29.4">IJ:29.4</a>)</h3>
+<div id="outline-container-orge91374f" class="outline-3">
+<h3 id="orge91374f"><span class="section-number-3">8.2.</span> algorithmic spot detection with Find Maxima (<a href="https://imagej.nih.gov/ij/docs/guide/146-29.html#toc-Subsection-29.4">IJ:29.4</a>)</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 <a href="https://forum.image.sc/t/new-maxima-finder-menu-in-fiji/25504">Forum post about Find Maxima</a>
@@ -1553,8 +1726,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org6428085" class="outline-3">
-<h3 id="org6428085"><span class="section-number-3">8.3.</span> automatic spot segmentation with thresholding</h3>
+<div id="outline-container-orge2df8a5" class="outline-3">
+<h3 id="orge2df8a5"><span class="section-number-3">8.3.</span> automatic spot segmentation with thresholding</h3>
 <div class="outline-text-3" id="text-8-3">
 <ol class="org-ol">
 <li>open <code>spot_detection/beads_001.tif</code></li>
@@ -1590,8 +1763,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org0951ef1" class="outline-3">
-<h3 id="org0951ef1"><span class="section-number-3">8.4.</span> spot detection with noise</h3>
+<div id="outline-container-org121bfb5" class="outline-3">
+<h3 id="org121bfb5"><span class="section-number-3">8.4.</span> spot detection with noise</h3>
 <div class="outline-text-3" id="text-8-4">
 <ol class="org-ol">
 <li>Repeat 8.2 with <code>with_noise_8000.tif</code>
@@ -1618,8 +1791,8 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org33a23a7" class="outline-3">
-<h3 id="org33a23a7"><span class="section-number-3">8.5.</span> spot detection with variable background</h3>
+<div id="outline-container-org11588ea" class="outline-3">
+<h3 id="org11588ea"><span class="section-number-3">8.5.</span> spot detection with variable background</h3>
 <div class="outline-text-3" id="text-8-5">
 <ol class="org-ol">
 <li>Repeat 8.2 with <code>beads_001_ramp.tif</code></li>
@@ -1635,12 +1808,12 @@ on the quatlity of the result.</li>
 </div>
 </div>
 
-<div id="outline-container-org2413e75" class="outline-2">
-<h2 id="org2413e75"><span class="section-number-2">9.</span> scripting / macros / automation basics</h2>
+<div id="outline-container-orgbc0ee51" class="outline-2">
+<h2 id="orgbc0ee51"><span class="section-number-2">9.</span> scripting / macros / automation basics</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org6d034f3" class="outline-3">
-<h3 id="org6d034f3"><span class="section-number-3">9.1.</span> macro recorder - reproducing edits</h3>
+<div id="outline-container-org8676c17" class="outline-3">
+<h3 id="org8676c17"><span class="section-number-3">9.1.</span> macro recorder - reproducing edits</h3>
 <div class="outline-text-3" id="text-9-1">
 <ol class="org-ol">
 <li><b>target:</b> save the edit chain for later (to save work and to
@@ -1666,8 +1839,8 @@ document parameters used by different filters)</li>
 </div>
 </div>
 
-<div id="outline-container-org3b9ea02" class="outline-3">
-<h3 id="org3b9ea02"><span class="section-number-3">9.2.</span> macro recorder - repeating actions on stack</h3>
+<div id="outline-container-org83f87b8" class="outline-3">
+<h3 id="org83f87b8"><span class="section-number-3">9.2.</span> macro recorder - repeating actions on stack</h3>
 <div class="outline-text-3" id="text-9-2">
 <ol class="org-ol">
 <li><b>target:</b> calculate the volume of human skull</li>
@@ -1710,8 +1883,8 @@ run("Measure");
 </div>
 </div>
 
-<div id="outline-container-org1422970" class="outline-3">
-<h3 id="org1422970"><span class="section-number-3">9.3.</span> automatic iteration</h3>
+<div id="outline-container-org2b85aba" class="outline-3">
+<h3 id="org2b85aba"><span class="section-number-3">9.3.</span> automatic iteration</h3>
 <div class="outline-text-3" id="text-9-3">
 <ol class="org-ol">
 <li><b>target:</b> avoid copy pasting - use iteration instead</li>
@@ -1733,8 +1906,8 @@ for (currentStep=0; currentStep&lt;100;currentStep++){
 </div>
 </div>
 
-<div id="outline-container-org5cef8c1" class="outline-3">
-<h3 id="org5cef8c1"><span class="section-number-3">9.4.</span> automatic iteration - introducing function for stop condition</h3>
+<div id="outline-container-orgd1f6b0a" class="outline-3">
+<h3 id="orgd1f6b0a"><span class="section-number-3">9.4.</span> automatic iteration - introducing function for stop condition</h3>
 <div class="outline-text-3" id="text-9-4">
 <ol class="org-ol">
 <li><b>target:</b> avoid fixed stop condition and exchange it by more
@@ -1756,8 +1929,8 @@ for (currentStep=1; currentStep&lt;=nSlices();currentStep++){
 </div>
 </div>
 
-<div id="outline-container-orgb5099e3" class="outline-3">
-<h3 id="orgb5099e3"><span class="section-number-3">9.5.</span> adding macro to the menu</h3>
+<div id="outline-container-org0978066" class="outline-3">
+<h3 id="org0978066"><span class="section-number-3">9.5.</span> adding macro to the menu</h3>
 <div class="outline-text-3" id="text-9-5">
 <ol class="org-ol">
 <li><b>target:</b> add macro to the menu</li>
@@ -1791,8 +1964,8 @@ macro "measure stack" {
 </div>
 </div>
 
-<div id="outline-container-org80f46db" class="outline-3">
-<h3 id="org80f46db"><span class="section-number-3">9.6.</span> iterations and variables in the macro: multi-measurement</h3>
+<div id="outline-container-orgcf15f82" class="outline-3">
+<h3 id="orgcf15f82"><span class="section-number-3">9.6.</span> iterations and variables in the macro: multi-measurement</h3>
 <div class="outline-text-3" id="text-9-6">
 <ol class="org-ol">
 <li><b>target:</b> prepare the evenly distributed selection over the
@@ -1819,8 +1992,8 @@ for (nbr_x=0;nbr_x&lt;5;nbr_x++){
 </div>
 </div>
 
-<div id="outline-container-orgc78d60a" class="outline-3">
-<h3 id="orgc78d60a"><span class="section-number-3">9.7.</span> automatic measurement and saving to a file</h3>
+<div id="outline-container-orgfea7a58" class="outline-3">
+<h3 id="orgfea7a58"><span class="section-number-3">9.7.</span> automatic measurement and saving to a file</h3>
 <div class="outline-text-3" id="text-9-7">
 <ol class="org-ol">
 <li><b>target:</b> prepare the evenly distributed selection over the image v.2</li>
@@ -1854,8 +2027,8 @@ saveAs("Results", "/Users/sstoma/Desktop/Results-"+ fn +".txt");
 </div>
 </div>
 
-<div id="outline-container-orgf997fb3" class="outline-3">
-<h3 id="orgf997fb3"><span class="section-number-3">9.8.</span> user input via GUI</h3>
+<div id="outline-container-org868ad04" class="outline-3">
+<h3 id="org868ad04"><span class="section-number-3">9.8.</span> user input via GUI</h3>
 <div class="outline-text-3" id="text-9-8">
 <ol class="org-ol">
 <li><b>target:</b> prepare the evenly distributed selection over the image v.3</li>
@@ -1894,8 +2067,8 @@ saveAs("Results", "/Users/sstoma/Desktop/Results-"+ fn +".txt");
 </ol>
 </div>
 </div>
-<div id="outline-container-orgd113291" class="outline-3">
-<h3 id="orgd113291"><span class="section-number-3">9.9.</span> user input via image window / selection</h3>
+<div id="outline-container-orge89e8e8" class="outline-3">
+<h3 id="orge89e8e8"><span class="section-number-3">9.9.</span> user input via image window / selection</h3>
 <div class="outline-text-3" id="text-9-9">
 <ol class="org-ol">
 <li><b>target:</b> prepare the evenly distributed selection over the
@@ -1941,8 +2114,8 @@ saveAs("Results", "/Users/sstoma/Desktop/Results-"+ fn +".txt");
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb50f407" class="outline-3">
-<h3 id="orgb50f407"><span class="section-number-3">9.10.</span> batch mode - basics</h3>
+<div id="outline-container-orga345020" class="outline-3">
+<h3 id="orga345020"><span class="section-number-3">9.10.</span> batch mode - basics</h3>
 <div class="outline-text-3" id="text-9-10">
 <ol class="org-ol">
 <li><b>target:</b> Create a macro to segment nuclei in a single
@@ -2027,8 +2200,8 @@ for (imagenumber=0;imagenumber&lt;list.length;imagenumber++)
 </div>
 </div>
 
-<div id="outline-container-orgbb357bc" class="outline-3">
-<h3 id="orgbb357bc"><span class="section-number-3">9.11.</span> batch mode - full control on processing files</h3>
+<div id="outline-container-orgc3f8966" class="outline-3">
+<h3 id="orgc3f8966"><span class="section-number-3">9.11.</span> batch mode - full control on processing files</h3>
 <div class="outline-text-3" id="text-9-11">
 <ol class="org-ol">
 <li><b>target:</b> Create a macro to segment nuclei in a single
@@ -2077,12 +2250,12 @@ vfileName = getInfo("image.filename");
 </div>
 </div>
 
-<div id="outline-container-orgbabf17f" class="outline-2">
-<h2 id="orgbabf17f"><span class="section-number-2">10.</span> workflow: tracking</h2>
+<div id="outline-container-org7df3378" class="outline-2">
+<h2 id="org7df3378"><span class="section-number-2">10.</span> workflow: tracking</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org19c7c88" class="outline-3">
-<h3 id="org19c7c88"><span class="section-number-3">10.1.</span> create image with moving dots</h3>
+<div id="outline-container-orgda6ffe7" class="outline-3">
+<h3 id="orgda6ffe7"><span class="section-number-3">10.1.</span> create image with moving dots</h3>
 <div class="outline-text-3" id="text-10-1">
 <ol class="org-ol">
 <li><b>target:</b> create an image with moving objects (dots)</li>
@@ -2123,8 +2296,8 @@ macro "create_image_with_moving_objects"{
 </div>
 </div>
 
-<div id="outline-container-orgf487611" class="outline-3">
-<h3 id="orgf487611"><span class="section-number-3">10.2.</span> tracking: process single image</h3>
+<div id="outline-container-org25c3080" class="outline-3">
+<h3 id="org25c3080"><span class="section-number-3">10.2.</span> tracking: process single image</h3>
 <div class="outline-text-3" id="text-10-2">
 <ol class="org-ol">
 <li><b>target:</b> for <b>current</b> frame of the stack find the x, y of the
@@ -2132,7 +2305,7 @@ center of the dot</li>
 <li><p>
 make sure that the code looks in the following way
 </p>
-<pre class="example" id="orgcc4078d">
+<pre class="example" id="org819071f">
 macro "tracking_process_single_image"{
   run("Median...", "radius=2 slice");
   setThreshold(0, 100);
@@ -2145,8 +2318,8 @@ macro "tracking_process_single_image"{
 </div>
 </div>
 
-<div id="outline-container-orgebfade4" class="outline-3">
-<h3 id="orgebfade4"><span class="section-number-3">10.3.</span> tracking: process whole stack</h3>
+<div id="outline-container-orgf4b8b8c" class="outline-3">
+<h3 id="orgf4b8b8c"><span class="section-number-3">10.3.</span> tracking: process whole stack</h3>
 <div class="outline-text-3" id="text-10-3">
 <ol class="org-ol">
 <li><b>target:</b> for <b>all</b> frames of the stack find the x, y of the
@@ -2182,8 +2355,8 @@ macro "tracking_process_stack_v1"{
 </div>
 </div>
 
-<div id="outline-container-org3dca58b" class="outline-3">
-<h3 id="org3dca58b"><span class="section-number-3">10.4.</span> tracking: process whole stack - enabling linking of the objects</h3>
+<div id="outline-container-orgc3983ac" class="outline-3">
+<h3 id="orgc3983ac"><span class="section-number-3">10.4.</span> tracking: process whole stack - enabling linking of the objects</h3>
 <div class="outline-text-3" id="text-10-4">
 <ol class="org-ol">
 <li><b>target:</b> for <b>all</b> frames of the stack find the x, y of the
@@ -2219,12 +2392,12 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org8542cb4" class="outline-2">
-<h2 id="org8542cb4"><span class="section-number-2">11.</span> workflow: FRET</h2>
+<div id="outline-container-org9a91742" class="outline-2">
+<h2 id="org9a91742"><span class="section-number-2">11.</span> workflow: FRET</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-orgca8e122" class="outline-3">
-<h3 id="orgca8e122"><span class="section-number-3">11.1.</span> preparation part 1 - image import</h3>
+<div id="outline-container-orgdfaf9c6" class="outline-3">
+<h3 id="orgdfaf9c6"><span class="section-number-3">11.1.</span> preparation part 1 - image import</h3>
 <div class="outline-text-3" id="text-11-1">
 <ol class="org-ol">
 <li><b>target:</b> open .lif image and prepare it for further editing</li>
@@ -2248,8 +2421,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org50586fe" class="outline-3">
-<h3 id="org50586fe"><span class="section-number-3">11.2.</span> preparation part 2 - averaging</h3>
+<div id="outline-container-org62d3b52" class="outline-3">
+<h3 id="org62d3b52"><span class="section-number-3">11.2.</span> preparation part 2 - averaging</h3>
 <div class="outline-text-3" id="text-11-2">
 <ol class="org-ol">
 <li><b>target:</b> prepare images for further editing</li>
@@ -2268,8 +2441,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org3b64d1d" class="outline-3">
-<h3 id="org3b64d1d"><span class="section-number-3">11.3.</span> preparation part 3 - masks</h3>
+<div id="outline-container-orgeaa7661" class="outline-3">
+<h3 id="orgeaa7661"><span class="section-number-3">11.3.</span> preparation part 3 - masks</h3>
 <div class="outline-text-3" id="text-11-3">
 <p>
 <b>target:</b> prepare masks
@@ -2285,8 +2458,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org890a9f6" class="outline-3">
-<h3 id="org890a9f6"><span class="section-number-3">11.4.</span> preparation part 4 - ratios</h3>
+<div id="outline-container-orgdb8e472" class="outline-3">
+<h3 id="orgdb8e472"><span class="section-number-3">11.4.</span> preparation part 4 - ratios</h3>
 <div class="outline-text-3" id="text-11-4">
 <p>
 <b>target:</b> prepare image with ratios
@@ -2299,8 +2472,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org6d64718" class="outline-3">
-<h3 id="org6d64718"><span class="section-number-3">11.5.</span> analysis - problem: cell population</h3>
+<div id="outline-container-org80e6f0c" class="outline-3">
+<h3 id="org80e6f0c"><span class="section-number-3">11.5.</span> analysis - problem: cell population</h3>
 <div class="outline-text-3" id="text-11-5">
 <p>
 <b>target:</b> measure the change of signal in ratio.tif image
@@ -2325,8 +2498,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org6803c38" class="outline-3">
-<h3 id="org6803c38"><span class="section-number-3">11.6.</span> preparation part 5 - cropping</h3>
+<div id="outline-container-org307ee4d" class="outline-3">
+<h3 id="org307ee4d"><span class="section-number-3">11.6.</span> preparation part 5 - cropping</h3>
 <div class="outline-text-3" id="text-11-6">
 <p>
 <b>target:</b> prepare image with ratios
@@ -2348,8 +2521,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-orge4877aa" class="outline-3">
-<h3 id="orge4877aa"><span class="section-number-3">11.7.</span> analysis - problem: chromatin change</h3>
+<div id="outline-container-org9cf070b" class="outline-3">
+<h3 id="org9cf070b"><span class="section-number-3">11.7.</span> analysis - problem: chromatin change</h3>
 <div class="outline-text-3" id="text-11-7">
 <p>
 <b>target:</b> measure the change of signal in ratio-crop.tif image
@@ -2374,8 +2547,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org2ef8e7a" class="outline-3">
-<h3 id="org2ef8e7a"><span class="section-number-3">11.8.</span> analysis - problem: manual labor</h3>
+<div id="outline-container-org13e48d2" class="outline-3">
+<h3 id="org13e48d2"><span class="section-number-3">11.8.</span> analysis - problem: manual labor</h3>
 <div class="outline-text-3" id="text-11-8">
 <p>
 <b>target:</b> measure the change of signal in ratio-crop.tif image limited
@@ -2403,12 +2576,12 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org91c26dc" class="outline-2">
-<h2 id="org91c26dc"><span class="section-number-2">12.</span> workflow: scratch assay</h2>
+<div id="outline-container-orgebe0a46" class="outline-2">
+<h2 id="orgebe0a46"><span class="section-number-2">12.</span> workflow: scratch assay</h2>
 <div class="outline-text-2" id="text-12">
 </div>
-<div id="outline-container-orgda9b102" class="outline-3">
-<h3 id="orgda9b102"><span class="section-number-3">12.1.</span> part 1</h3>
+<div id="outline-container-org5b26e16" class="outline-3">
+<h3 id="org5b26e16"><span class="section-number-3">12.1.</span> part 1</h3>
 <div class="outline-text-3" id="text-12-1">
 <ol class="org-ol">
 <li><b>target:</b> estimate the area occupied by cells in single timepoint</li>
@@ -2443,8 +2616,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org348ec43" class="outline-3">
-<h3 id="org348ec43"><span class="section-number-3">12.2.</span> part 2</h3>
+<div id="outline-container-org7b1a64a" class="outline-3">
+<h3 id="org7b1a64a"><span class="section-number-3">12.2.</span> part 2</h3>
 <div class="outline-text-3" id="text-12-2">
 <ol class="org-ol">
 <li><b>target:</b> estimate the area occupied by cells in each time point
@@ -2455,8 +2628,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org61efc06" class="outline-3">
-<h3 id="org61efc06"><span class="section-number-3">12.3.</span> part 3</h3>
+<div id="outline-container-org5197331" class="outline-3">
+<h3 id="org5197331"><span class="section-number-3">12.3.</span> part 3</h3>
 <div class="outline-text-3" id="text-12-3">
 <ol class="org-ol">
 <li><b>target:</b> estimate the area occupied by cells in each time point</li>
@@ -2497,12 +2670,12 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-orgf8e9ef7" class="outline-2">
-<h2 id="orgf8e9ef7"><span class="section-number-2">13.</span> various useful tools</h2>
+<div id="outline-container-orgb52a6c4" class="outline-2">
+<h2 id="orgb52a6c4"><span class="section-number-2">13.</span> various useful tools</h2>
 <div class="outline-text-2" id="text-13">
 </div>
-<div id="outline-container-orgae8c454" class="outline-3">
-<h3 id="orgae8c454"><span class="section-number-3">13.1.</span> installing plugins</h3>
+<div id="outline-container-orgac665b1" class="outline-3">
+<h3 id="orgac665b1"><span class="section-number-3">13.1.</span> installing plugins</h3>
 <div class="outline-text-3" id="text-13-1">
 <ol class="org-ol">
 <li>download plugin from webpage:
@@ -2519,8 +2692,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-orgc9c3352" class="outline-3">
-<h3 id="orgc9c3352"><span class="section-number-3">13.2.</span> using line selection to make a &ldquo;straighten&rdquo; image</h3>
+<div id="outline-container-org17e9b93" class="outline-3">
+<h3 id="org17e9b93"><span class="section-number-3">13.2.</span> using line selection to make a &ldquo;straighten&rdquo; image</h3>
 <div class="outline-text-3" id="text-13-2">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; nile bend (IJ:26.4)</li>
@@ -2533,8 +2706,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-org8550bb0" class="outline-3">
-<h3 id="org8550bb0"><span class="section-number-3">13.3.</span> using 3D viewer</h3>
+<div id="outline-container-org3833099" class="outline-3">
+<h3 id="org3833099"><span class="section-number-3">13.3.</span> using 3D viewer</h3>
 <div class="outline-text-3" id="text-13-3">
 <ol class="org-ol">
 <li>file &gt; open samples &gt; confocal series (IJ:26.4)</li>
@@ -2550,8 +2723,8 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 
-<div id="outline-container-orgc3fe9c7" class="outline-3">
-<h3 id="orgc3fe9c7"><span class="section-number-3">13.4.</span> preparing images for publications</h3>
+<div id="outline-container-org6376887" class="outline-3">
+<h3 id="org6376887"><span class="section-number-3">13.4.</span> preparing images for publications</h3>
 <div class="outline-text-3" id="text-13-4">
 <ul class="org-ul">
 <li>FigureJ plugin:
@@ -2564,9 +2737,9 @@ macro "tracking_process_stack_v2"{
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Federico Gasparoli, Simon F. Nørrelykke</p>
+<p class="author">Author: Federico Gasparoli, Szymon Stoma Simon F. Nørrelykke</p>
 <p class="email">Email: <a href="mailto:simon@hms.harvard.edu">simon@hms.harvard.edu</a></p>
-<p class="date">Created: 2024-05-14 Tue 09:29</p>
+<p class="date">Created: 2024-10-08 Tue 10:55</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

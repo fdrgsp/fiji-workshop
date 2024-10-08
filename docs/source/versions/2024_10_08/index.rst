@@ -26,7 +26,7 @@ The following materials were developed for a workshop taught in-person at Harvar
   
   .. raw:: html
   
-     <p><a href="_static/exercises/exercises.pdf" download>Download all exercises (PDF)</a></p>
+     <p><a href="_static/exercises/workflows.pdf" download>Download all exercises (PDF)</a></p>
 
 - **Course images:**
   
