@@ -26,7 +26,7 @@ The following materials were developed for a workshop taught in-person at Harvar
   
   .. raw:: html
   
-     <p><a href="_static/exercises/exercises.pdf" download>Download all exercises (PDF)</a></p>
+     <p><a href="_static/exercises/workflows.pdf" download>Download all exercises (PDF)</a></p>
 
 - **Course images:**
   
@@ -55,10 +55,8 @@ Below are the core sections of this workshop, each focusing on different aspects
 
    01_intro.rst
    02_intro_to_fiji.rst
-   03_processing.rst
-   04_segmentation.rst
-   05_spotdetection.rst
-   06_reproducibility.rst
+   03_segmentation_1.rst
+   04_segmentation_2.rst
    
 
 **Exercises**

@@ -19,24 +19,36 @@ Images
 
 5. .. raw:: html
   
-     <p><a href="_static/images/DAPI.zip" download>[DAPI.zip]</a></p>
+     <p><a href="_static/images/DAPI.tif" download>[DAPI.tif]</a></p>
 
 6. .. raw:: html
   
-     <p><a href="_static/images/for_exercise_1.4.zip" download>[for_exercise_1.4.zip]</a></p>
+     <p><a href="_static/images/DAPI_noise.tif" download>[DAPI_noise.tif]</a></p>
 
 7. .. raw:: html
   
-     <p><a href="_static/images/multichannel_images.zip" download>[multichannel_images.zip]</a></p>
+     <p><a href="_static/images/for_exercise_1.4.zip" download>[for_exercise_1.4.zip]</a></p>
 
 8. .. raw:: html
   
-     <p><a href="_static/images/spot_detection.zip" download>[spot_detection.zip]</a></p>
+     <p><a href="_static/images/multichannel_images.zip" download>[multichannel_images.zip]</a></p>
 
 9. .. raw:: html
   
-     <p><a href="_static/images/DAPI_mask.tif" download>[DAPI_mask.tif]</a></p>
+     <p><a href="_static/images/spot_detection.zip" download>[spot_detection.zip]</a></p>
 
 10. .. raw:: html
   
      <p><a href="_static/images/single_channel.tif" download>[single_channel.tif]</a></p>
+
+11. .. raw:: html
+       
+       <p><a href="_static/images/vertical_stripes.tif" download>[vertical_stripes.tif]</a></p>
+
+12. .. raw:: html
+       
+       <p><a href="_static/images/horizontal_stripes.tif" download>[horizontal_stripes.tif]</a></p>
+
+13. .. raw:: html
+       
+       <p><a href="_static/images/checkerboard.tif" download>[checkerboard.tif]</a></p>
