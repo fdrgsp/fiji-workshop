@@ -1,9 +1,6 @@
-Image processing
-====================
+Image segmentation (1)
+========================
 
-This page is empty for now. 
+.. raw:: html
 
-
-.. .. raw:: html
-
-..    <iframe src="_static/01_intro_digital_image_analysis.pdf" width="100%" height="600px"></iframe>
+   <iframe src="_static/03_Thresholding_WEKA.pdf" width="100%" height="600px"></iframe>
