@@ -55,10 +55,8 @@ Below are the core sections of this workshop, each focusing on different aspects
 
    01_intro.rst
    02_intro_to_fiji.rst
-   03_processing.rst
-   04_segmentation.rst
-   05_spotdetection.rst
-   06_reproducibility.rst
+   03_segmentation_1.rst
+   04_segmentation_2.rst
    
 
 **Exercises**
